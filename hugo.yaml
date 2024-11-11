@@ -1,0 +1,14 @@
+baseURL: https://example.org/
+languageCode: en-us
+title: Golden Wastes
+
+module:
+  imports:
+    - path: github.com/jack-hk/Atlas
+
+permalinks: # Hides steps in the URL (site.com/docs/rules/class/bard) -> (site.com/bard)
+  docs: /:title
+
+# (Optional, default docs) Specify section of content to render as menu
+# You can also set value to "*" to render all sections to menu
+BookSection: '*'
