@@ -5,6 +5,9 @@ const path = require('path');
 const fileName = path.join(__dirname, "/data/moves.json");
 const OUTPUT_DIR = path.join(__dirname, '/content/docs/rules/move'); // Change 'output' to your preferred directory name
 
+// Configuration
+const iconSize = "50";
+
 // Reserved names in Windows
 const RESERVED_NAMES = [
     "CON", "PRN", "AUX", "NUL",
@@ -33,6 +36,17 @@ function normalizeNameForURL(name) {
     }
 
     return normalizedName;
+}
+
+// Function to convert the requires/replaces to relative links
+function convertToRelativeLink(value, currentFileName) {
+    return value
+        .split(',') // In case there are multiple items separated by commas
+        .map(item => {
+            let normalizedItem = normalizeNameForURL(item.trim());
+            return `[${item.trim()}](/${normalizedItem}/)`; // Assuming the relative link pattern
+        })
+        .join(', ');
 }
 
 // Function to process the JSON file and create markdown files
@@ -67,18 +81,20 @@ title: "${entry.name}"
 type: "wiki"
 ---`;
                 // Class and type
-                mdContent +=`\n## ${entry.class || ''} ${entry.type} Move`;
+                mdContent +=`\n## ${entry.type} ${entry.class || ''} Move`;
+
+                mdContent +=`\n{{< icon source="https://seiyria.com/gameicons-font/svg/${entry.icon}.svg" name="${entry.icon}" size="${iconSize}" >}}`;
 
                 mdContent += `\n{{< infobox name="${entry.name}" type="${entry.type || ""}" class="${entry.class || ""}" >}}`
 
-                // Add "Requires" if the field exists
+                // Convert "Requires" to relative links
                 if (entry.requires) {
-                    mdContent += `\n\nRequires: ${entry.requires}`;
+                    mdContent += `\n\n**Requires:** ${convertToRelativeLink(entry.requires, normalizedName)}`;
                 }
 
-                // Add "Replaces" if the field exists
+                // Convert "Replaces" to relative links
                 if (entry.replaces) {
-                    mdContent += `\n\nReplaces: ${entry.replaces}`;
+                    mdContent += `\n\n**Replaces:** ${convertToRelativeLink(entry.replaces, normalizedName)}`;
                 }
 
                 // Add the description

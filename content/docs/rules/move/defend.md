@@ -4,7 +4,8 @@ BookToC: false
 title: "Defend"
 type: "wiki"
 ---
-##  Basic Move
+## Basic  Move
+{{< icon source="https://seiyria.com/gameicons-font/svg/slashed-shield.svg" name="slashed-shield" size="50" >}}
 {{< infobox name="Defend" type="Basic" class="" >}}
 
 When you stand in defense of a person, item, or location under attack, roll+Con. On a 10+, hold 3. On a 7–9, hold 1. So long as you stand in defense, when you or the thing you defend is attacked you may spend hold, 1 for 1, to choose an option:

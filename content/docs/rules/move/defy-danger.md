@@ -4,7 +4,8 @@ BookToC: false
 title: "Defy Danger"
 type: "wiki"
 ---
-##  Basic Move
+## Basic  Move
+{{< icon source="https://seiyria.com/gameicons-font/svg/fist.svg" name="fist" size="50" >}}
 {{< infobox name="Defy Danger" type="Basic" class="" >}}
 
 When you act despite an imminent threat or suffer a calamity, say how you deal with it and roll. If you do it:

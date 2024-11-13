@@ -4,7 +4,8 @@ BookToC: false
 title: "Volley"
 type: "wiki"
 ---
-##  Basic Move
+## Basic  Move
+{{< icon source="https://seiyria.com/gameicons-font/svg/arrow-dunk.svg" name="arrow-dunk" size="50" >}}
 {{< infobox name="Volley" type="Basic" class="" >}}
 
 When you take aim and shoot at an enemy at range, roll+Dex. On a 10+ you have a clear shot—deal your damage. On a 7–9, choose one (whichever you choose you deal your damage):
