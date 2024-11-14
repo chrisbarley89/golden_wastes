@@ -39,10 +39,6 @@ if (parseArgument === "json") {
       return runScript('scripts/compare.js');
     })
     .then(() => {
-      // After parse.js finishes, run bookGenerator.js
-      return runScript('scripts/bookGenerator.js');
-    })
-    .then(() => {
       console.log('All scripts executed successfully.');
     })
     .catch((err) => {
@@ -51,10 +47,6 @@ if (parseArgument === "json") {
 } else {
   // If the argument is not "json", run parse.js directly and then bookGenerator.js
   runScript('scripts/parse.js', parseArgs)
-    .then(() => {
-      // After parse.js finishes, run bookGenerator.js
-      return runScript('scripts/bookGenerator.js');
-    })
     .then(() => {
       console.log('All scripts executed successfully.');
     })

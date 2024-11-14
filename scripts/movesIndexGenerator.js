@@ -1,12 +1,11 @@
 const fs = require('fs');
-const path = require('path');
 
 // Example usage
-const inputFilePath = path.join(__dirname, '/data/moves.json');  // Your input JSON file path
-const outputFilePath = path.join(__dirname, '/content/docs/rules/move/_index.md');  // Updated output markdown file path
+const inputFilePath = './data/moves.json';  // Your input JSON file path
+const outputFilePath = './content/docs/rules/move/_index.md';  // Updated output markdown file path
 
 // Configuration
-const iconSize = "20"
+const iconSize = "20";
 
 // Reserved names in Windows
 const RESERVED_NAMES = [
@@ -111,9 +110,9 @@ function generateMoveIndex(inputFilePath, outputFilePath) {
             const moves = JSON.parse(data);
             const markdown = generateMarkdown(moves);
 
-            const outputDir = path.dirname(outputFilePath);
+            // Ensure the directory exists for output
+            const outputDir = outputFilePath.substring(0, outputFilePath.lastIndexOf('/'));
 
-            // Ensure the directory exists
             fs.mkdir(outputDir, { recursive: true }, (err) => {
                 if (err) {
                     console.error('Error creating the output directory:', err);

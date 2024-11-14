@@ -1,9 +1,8 @@
 const fs = require('fs');
-const path = require('path');
 
 // Constant to specify the output directory for generated files
-const fileName = path.join(__dirname, "/data/moves.json");
-const OUTPUT_DIR = path.join(__dirname, '/content/docs/rules/move'); // Change 'output' to your preferred directory name
+const fileName = "./data/moves.json";  // Specify the path directly
+const OUTPUT_DIR = "./content/docs/rules/move";  // Specify the output directory directly
 
 // Configuration
 const iconSize = "50";
@@ -61,6 +60,8 @@ function processJsonFile(fileName) {
         try {
             // Parse the data as JSON
             const jsonData = JSON.parse(data);
+            let pagesGenerated = 0; // Initialize the counter for pages generated
+            let totalEntries = jsonData.length; // Total number of entries to process
 
             // Loop through each entry in the JSON
             jsonData.forEach(entry => {
@@ -101,17 +102,23 @@ type: "wiki"
                 mdContent += `\n\n${entry.description}`;
 
                 // Define the output file path using the OUTPUT_DIR constant
-                const mdFilePath = path.join(OUTPUT_DIR, `${normalizedName}.md`);
+                const mdFilePath = `${OUTPUT_DIR}/${normalizedName}.md`;  // Directly build the file path
 
                 // Write the markdown content to a new file
                 fs.writeFile(mdFilePath, mdContent, 'utf8', (writeErr) => {
                     if (writeErr) {
                         console.error(`Error writing to file ${mdFilePath}: ${writeErr}`);
                     } else {
-                        console.log(`Markdown file created: ${mdFilePath}`);
+                        pagesGenerated++; // Increment the counter when a page is generated
+
+                        // Check if all pages are generated, then print the success message
+                        if (pagesGenerated === totalEntries) {
+                            console.log(`Successfully generated ${pagesGenerated} markdown files!`);
+                        }
                     }
                 });
             });
+
         } catch (parseErr) {
             console.error(`Error parsing JSON from file ${fileName}: ${parseErr}`);
         }
