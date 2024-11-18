@@ -2,7 +2,7 @@ const fs = require('fs');
 
 // Example usage
 const inputFilePath = './data/moves.json';  // Your input JSON file path
-const outputFilePath = './content/docs/rules/move/_index.md';  // Updated output markdown file path
+const outputFilePath = './content/rules/move/_index.md';  // Updated output markdown file path
 
 // Configuration
 const iconSize = "20";
@@ -72,7 +72,7 @@ bookHidden: true
         markdown += '## Basic Moves\n';
         noClassMoves.sort(sortMovesByName).forEach(move => {
             const linkName = formatNameForHyperlink(move.name);
-            markdown += `- {{< icon source="https://seiyria.com/gameicons-font/svg/${move.icon}.svg" name="${move.icon}" size="${iconSize}" >}} [${move.name}]({{< ref "/docs/rules/move/${linkName}" >}})\n`;
+            markdown += `- {{< icon source="https://seiyria.com/gameicons-font/svg/${move.icon}.svg" name="${move.icon}" size="${iconSize}" >}} [${move.name}]({{< ref "/rules/move/${linkName}" >}})\n`;
         });
         markdown += '\n';
     }
@@ -87,7 +87,7 @@ bookHidden: true
                     markdown += `### ${type.charAt(0).toUpperCase() + type.slice(1)} Moves\n`;
                     movesOfType.forEach(move => {
                         const linkName = formatNameForHyperlink(move.name);
-                        markdown += `- {{< icon source="https://seiyria.com/gameicons-font/svg/${move.icon}.svg" name="${move.icon}" size="${iconSize}" >}} [${move.name}]({{< ref "/docs/rules/move/${linkName}" >}})\n`;
+                        markdown += `- {{< icon source="https://seiyria.com/gameicons-font/svg/${move.icon}.svg" name="${move.icon}" size="${iconSize}" >}} [${move.name}]({{< ref "/rules/move/${linkName}" >}})\n`;
                     });
                     markdown += '\n';
                 }

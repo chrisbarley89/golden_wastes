@@ -1,13 +1,11 @@
 const fs = require('fs');
 
-// Constant to specify the output directory for generated files
-const fileName = "./data/moves.json";  // Specify the path directly
-const OUTPUT_DIR = "./content/docs/rules/move";  // Specify the output directory directly
+// Constants
+const fileName = "./data/moves.json";  // Path to the JSON file
+const OUTPUT_DIR = "./content/rules/move";  // Output directory
+const iconSize = "75";
 
-// Configuration
-const iconSize = "50";
-
-// Reserved names in Windows
+// Reserved Windows names
 const RESERVED_NAMES = [
     "CON", "PRN", "AUX", "NUL",
     "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "COM0",
@@ -19,38 +17,32 @@ if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
-// Function to normalize the name into a URL-friendly format and avoid reserved names
+// Normalize name for URL-safe format
 function normalizeNameForURL(name) {
     let normalizedName = name
-        .toLowerCase()                   // Convert to lowercase
+        .toLowerCase()
         .replace(/\s+/g, '-')             // Replace spaces with dashes
         .replace(/[^\w\-]/g, '')          // Remove all non-alphanumeric characters, except dashes
         .replace(/--+/g, '-')             // Replace multiple dashes with a single dash
         .replace(/^-+/, '')               // Remove leading dashes
         .replace(/-+$/, '');              // Remove trailing dashes
 
-    // If normalized name is a reserved Windows name, add a suffix to make it unique
     if (RESERVED_NAMES.includes(normalizedName.toUpperCase())) {
         normalizedName += '-move';
     }
-
     return normalizedName;
 }
 
-// Function to convert the requires/replaces to relative links
-function convertToRelativeLink(value, currentFileName) {
+// Convert requires/replaces to relative links
+function convertToRelativeLink(value) {
     return value
-        .split(',') // In case there are multiple items separated by commas
-        .map(item => {
-            let normalizedItem = normalizeNameForURL(item.trim());
-            return `[${item.trim()}](/${normalizedItem}/)`; // Assuming the relative link pattern
-        })
+        .split(',')
+        .map(item => `[${item.trim()}](/${normalizeNameForURL(item.trim())}/)`)
         .join(', ');
 }
 
-// Function to process the JSON file and create markdown files
+// Process JSON file
 function processJsonFile(fileName) {
-    // Read the file asynchronously
     fs.readFile(fileName, 'utf8', (err, data) => {
         if (err) {
             console.error(`Error reading file ${fileName}: ${err}`);
@@ -58,73 +50,86 @@ function processJsonFile(fileName) {
         }
 
         try {
-            // Parse the data as JSON
             const jsonData = JSON.parse(data);
-            let pagesGenerated = 0; // Initialize the counter for pages generated
-            let totalEntries = jsonData.length; // Total number of entries to process
-
-            // Loop through each entry in the JSON
             jsonData.forEach(entry => {
-                // Check for required fields: name, description, type
                 if (!entry.name || !entry.description || !entry.type) {
                     console.error(`Missing required fields in entry: ${JSON.stringify(entry)}`);
-                    return; // Skip this entry and continue with the next one
+                    return;
                 }
 
-                // Normalize the name for the URL
                 const normalizedName = normalizeNameForURL(entry.name);
 
-                // Start constructing the markdown content with the new frontmatter
+                // YAML Front Matter
                 let mdContent = `---
 bookHidden: true
 BookToC: false
-title: "${entry.name}"
+title: "${entry.name.replace(/"/g, '\\"')}"
 type: "wiki"
----`;
-                // Class and type
-                mdContent +=`\n## ${entry.type} ${entry.class || ''} Move`;
+infobox:
+  header: "${entry.name.replace(/"/g, '\\"')}"
+  icon: "https://seiyria.com/gameicons-font/svg/${entry.icon}.svg"
+  iconSize: 50
 
-                mdContent +=`\n{{< icon source="https://seiyria.com/gameicons-font/svg/${entry.icon}.svg" name="${entry.icon}" size="${iconSize}" >}}`;
+  labels:
+    - label: "Type"
+      item: "${entry.type}"`;
 
-                mdContent += `\n{{< infobox name="${entry.name}" type="${entry.type || ""}" class="${entry.class || ""}" >}}`
+                if (entry.class) {
+                    mdContent += `
+    - label: "Class"
+      item: "${convertToRelativeLink(entry.class)}"`;
+                }
 
-                // Convert "Requires" to relative links
+                if (entry.requires || entry.replaces) {
+                    mdContent += `
+    - divider: true`;
+                }
+
                 if (entry.requires) {
-                    mdContent += `\n\n**Requires:** ${convertToRelativeLink(entry.requires, normalizedName)}`;
+                    mdContent += `
+    - label: "Requires"
+      item: "${convertToRelativeLink(entry.requires)}"`;
                 }
 
-                // Convert "Replaces" to relative links
                 if (entry.replaces) {
-                    mdContent += `\n\n**Replaces:** ${convertToRelativeLink(entry.replaces, normalizedName)}`;
+                    mdContent += `
+    - label: "Replaces"
+      item: "${convertToRelativeLink(entry.replaces)}"`;
+                }
+                    mdContent += `
+also:`
+                if (entry.class) {
+                    mdContent += `
+    - "${entry.class}"`;
                 }
 
-                // Add the description
-                mdContent += `\n\n${entry.description}`;
+                    mdContent += `
+    - "how-to-play"`;
+                
+                mdContent += `
+---`;
 
-                // Define the output file path using the OUTPUT_DIR constant
-                const mdFilePath = `${OUTPUT_DIR}/${normalizedName}.md`;  // Directly build the file path
+                // Content Body
+                mdContent += `\n\n{{< infobox >}}\n\n${entry.description}`;
 
-                // Write the markdown content to a new file
+                const mdFilePath = `${OUTPUT_DIR}/${normalizedName}.md`;
+
+                // Write the file
                 fs.writeFile(mdFilePath, mdContent, 'utf8', (writeErr) => {
                     if (writeErr) {
-                        console.error(`Error writing to file ${mdFilePath}: ${writeErr}`);
+                        console.error(`Error writing file ${mdFilePath}: ${writeErr}`);
                     } else {
-                        pagesGenerated++; // Increment the counter when a page is generated
-
-                        // Check if all pages are generated, then print the success message
-                        if (pagesGenerated === totalEntries) {
-                            console.log(`Successfully generated ${pagesGenerated} markdown files!`);
-                        }
+                        console.log(`Generated: ${mdFilePath}`);
                     }
                 });
             });
-
         } catch (parseErr) {
-            console.error(`Error parsing JSON from file ${fileName}: ${parseErr}`);
+            console.error(`Error parsing JSON file: ${parseErr}`);
         }
     });
 }
 
+// Execute
 if (!fileName) {
     console.error("Usage: node createMarkdownFiles.js <fileName>");
 } else {
