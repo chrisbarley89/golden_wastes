@@ -13,9 +13,9 @@ permalinks: # Hides steps in the URL (site.com/docs/rules/class/bard) -> (site.c
 # You can also set value to "*" to render all sections to menu
 BookSection: "*"
 
-# (Optional, default none) Set the path to a logo for the book. If the logo is
-# /static/logo.png then the path would be 'logo.png'
 params:
+  # (Optional, default none) Set the path to a logo for the book. If the logo is
+  # /static/logo.png then the path would be 'logo.png'
   BookLogo: "images/logo.webp"
   
   # (Optional, default true) Controls table of contents visibility on right side of pages.

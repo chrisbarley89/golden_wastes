@@ -1,4 +1,5 @@
 import json
+import re
 from docx import Document
 
 # Configuration Section
@@ -38,6 +39,24 @@ def clean_description(description):
     description = description.replace("✴", "")
     description = description.replace("On a", "✴ On a")
     return description
+
+# Function to apply rich text formatting to paragraphs
+def apply_rich_text_formatting(paragraph, text):
+    """Applies bold, italic, and underline formatting to the text based on Markdown-style syntax."""
+    # Split text into parts by Markdown-style symbols
+    parts = re.split(r'(\*\*.+?\*\*|__.+?__|\*.+?\*|_.+?_)', text)
+    for part in parts:
+        if part.startswith("**") and part.endswith("**"):  # Bold text
+            run = paragraph.add_run(part[2:-2])
+            run.bold = True
+        elif part.startswith("__") and part.endswith("__"):  # Underline text
+            run = paragraph.add_run(part[2:-2])
+            run.underline = True
+        elif (part.startswith("*") and part.endswith("*")) or (part.startswith("_") and part.endswith("_")):  # Italic text
+            run = paragraph.add_run(part[1:-1])
+            run.italic = True
+        else:  # Normal text
+            paragraph.add_run(part)
 
 # Function to process and categorize moves
 def process_moves(moves_data):
@@ -88,8 +107,9 @@ def add_moves_to_docx(doc, categorized_moves):
                 move_name = move['name']
                 move_name = capitalize_text(move_name, CONFIG['capitalize_titles']['name'])
                 doc.add_heading(move_name, level=3)
-                # Add move description under the name
-                doc.add_paragraph(move['description'])
+                # Add move description under the name with rich text formatting
+                paragraph = doc.add_paragraph()
+                apply_rich_text_formatting(paragraph, move['description'])
 
 # Main function to process the .json and update the .docx
 def main():
