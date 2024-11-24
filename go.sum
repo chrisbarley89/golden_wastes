@@ -18,3 +18,7 @@ github.com/jack-hk/Atlas v0.0.0-20241121071133-ac9b15a7b461 h1:7tz7h+43QjqY/fKXc
 github.com/jack-hk/Atlas v0.0.0-20241121071133-ac9b15a7b461/go.mod h1:RAtMTNsqKoR/p3lZJOyMg62a7ftlwnwVKFNkXApAbnA=
 github.com/jack-hk/Atlas v0.0.0-20241121073705-b13a7285a458 h1:iOoPJV/jQuAMBD4b9UTbAG1KwePGeLULMUE09XeuFOc=
 github.com/jack-hk/Atlas v0.0.0-20241121073705-b13a7285a458/go.mod h1:RAtMTNsqKoR/p3lZJOyMg62a7ftlwnwVKFNkXApAbnA=
+github.com/jack-hk/Atlas v0.0.0-20241124035920-b7bb25698911 h1:Jhm1ENCCapm/RM+xYD0rmSl3zLXikUmg9dbI6VeVz1g=
+github.com/jack-hk/Atlas v0.0.0-20241124035920-b7bb25698911/go.mod h1:RAtMTNsqKoR/p3lZJOyMg62a7ftlwnwVKFNkXApAbnA=
+github.com/jack-hk/Atlas v0.0.0-20241124042244-5ccf6117a2cd h1:n0+W6sn6CGpht5Kdhg+qXl8jt6mJwkqxqZ3RTTVIXac=
+github.com/jack-hk/Atlas v0.0.0-20241124042244-5ccf6117a2cd/go.mod h1:RAtMTNsqKoR/p3lZJOyMg62a7ftlwnwVKFNkXApAbnA=

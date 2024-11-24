@@ -9,7 +9,6 @@ You’ve heard them, sitting around the campfire. Bragging about this battle or 
 
 Sure, they give you shit for all the times you’ve snuck off alone but without you, who among them wouldn’t have been dissected by a flying guillotine or poisoned straight to death by some ancient needle trap? So, let them complain. When you’re done with all this delving you’ll toast their hero’s graves. From your castle. Full of gold. You rogue.
 
-{{< icon class="gi gi-sacrificial-dagger gi-4x" >}} 
 
 **Maximum HP:** 6+Constitution
 

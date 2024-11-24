@@ -24,8 +24,6 @@ The poems say an adventurer’s life is all open roads and the glory of coin and
 
 Enter the bard. You, with your smooth tongue and quick wit. You teller-of-tales and singer-of-songs. It takes a mere minstrel to retell a thing but a true bard to live it. Strap on your boots, noble orator. Sharpen that hidden dagger and take up the call. Someone’s got to be there, fighting shoulder-to-shoulder with the goons and the thugs and the soon-to-be-heroes. Who better than you to write the tale of your own heroism?
 
-{{< icon class="gi gi-pan-flute gi-4x" >}}
-
 **Maximum HP:** 6+Constitution
 
 **Base damage:** d6

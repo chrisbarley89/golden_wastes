@@ -10,8 +10,6 @@ Only you.
 
 Eyes, hands, and sweet killing blow of the gods, you are. Yours is the gift of righteousness and virtue—of justice, of Vision, too. A purity of intent that your companions do not have. So guide these fools, paladin. Take up your holy cause and bring salvation to the wastrel world. Vae victis, right?
 
-{{< icon class="gi gi-rosa-shield gi-4x" >}}
-
 **Maximum HP:** 10+Constitution
 
 **Base damage:** d10
