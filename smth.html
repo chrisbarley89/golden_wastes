@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hugo Local Testing UI</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    h2 {
+      padding: 0.5em 1em;
+      background-color: #00d1b2;
+      color: white;
+      margin: 0;
+    }
+    section {
+      margin: 1em;
+      padding: 1em;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .subsection {
+      border-top: 1px solid #ddd;
+      margin-top: 1em;
+      padding-top: 1em;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      margin-bottom: 1em;
+      flex-wrap: wrap;
+    }
+    label {
+      min-width: 160px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 0.5em 1em;
+      background-color: #00d1b2;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00b89c;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 1em;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      overflow-y: scroll;
+      font-family: monospace;
+      resize: vertical;
+    }
+    select {
+      padding: 0.5em;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    input[type="checkbox"] {
+      transform: scale(1.5);
+    }
+  </style>
+</head>
+<body>
+  <h2>🧪 Hugo Local Testing UI</h2>
+  
+  <section id="project-directory">
+    <h3>Project Directory</h3>
+    <div class="row">
+      <label for="projectDir">Select Directory</label>
+      <input type="text" id="projectDir" placeholder="Default = current program dir">
+      <button onclick="selectDirectory('projectDir')" title="Open directory selector">📁</button>
+    </div>
+  </section>
+
+  <section id="generate-blog-content">
+    <h3>Generate Blog Content</h3>
+    <div class="subsection">
+      <h4>Generate moves.json related content</h4>
+      <div class="row">
+        <button onclick="generatePages()" title="Generates pages from data/moves.json">Generate Pages</button>
+        <button onclick="openDirectory('content/rules/move')" title="Open moves folder">📂 Open Moves Folder</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="import-project-data">
+    <h3>Import Project Data [json|md]</h3>
+    <div class="subsection">
+      <h4>Import moves.json</h4>
+      <div class="row">
+        <label>Select File</label>
+        <input type="text" id="importMovesPath">
+        <button onclick="findFile('importMovesPath')">📄</button>
+      </div>
+      <div class="row">
+        <button onclick="importMovesJson()">Convert and Replace moves.json</button>
+        <button onclick="openFile('data/moves.json')">📂 Open moves.json</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="export-project-data">
+    <h3>Export Project Data [json|md|docx]</h3>
+    <div class="subsection">
+      <h4>Export moves.json</h4>
+      <div class="row">
+        <label>Output File Name</label>
+        <input type="text" id="exportFilename">
+      </div>
+      <div class="row">
+        <label>Export Format</label>
+        <select id="exportFormat">
+          <option value="json">.json</option>
+          <option value="md">.md</option>
+          <option value="docx">.docx</option>
+        </select>
+      </div>
+      <div class="row">
+        <label>Output Directory</label>
+        <input type="text" id="exportDirectory">
+        <button onclick="selectDirectory('exportDirectory')">📁</button>
+      </div>
+      <div class="row">
+        <label>DOCX Template File</label>
+        <input type="text" id="templateFile">
+        <button onclick="findFile('templateFile')">📄</button>
+      </div>
+      <div class="row">
+        <button onclick="exportData()">Export Data</button>
+        <button onclick="openDirectory('local/generated')">📂 Open Output Folder</button>
+        <button id="openGeneratedBtn" onclick="openLatestGeneratedFile()" disabled>📂 Open Latest Generated File</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="source-control">
+    <h3>Source Control</h3>
+    <div class="subsection">
+      <h4>Select Theme Directory</h4>
+      <div class="row">
+        <label>Use Local Theme</label>
+        <input type="checkbox" id="useLocalHugoTheme">
+        <input type="text" id="localThemeDir">
+        <button onclick="selectDirectory('localThemeDir')">📁</button>
+      </div>
+    </div>
+    <div class="subsection">
+      <h4>Hugo Module Commands</h4>
+      <div class="row">
+        <button onclick="runCommand('hugo mod tidy')">Update Modules</button>
+        <button onclick="runCommand('hugo mod get -u')">Update Modules (Recursive)</button>
+      </div>
+      <div class="row">
+        <input type="text" id="specificModule">
+        <button onclick="runCommand(`hugo mod get ${document.getElementById('specificModule').value}`)">Get Specific Module</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="run-hugo">
+    <h3>Run Hugo</h3>
+    <div class="row">
+      <button onclick="runCommand('hugo version')">Check Version</button>
+      <button onclick="runCommand('hugo server')">Run Server</button>
+      <button onclick="runCommand('hugo server --disableFastRender')">Run Server (No Fast Render)</button>
+      <input type="text" id="customParams">
+      <button onclick="runCommand(`hugo server ${document.getElementById('customParams').value}`)">Run With Params</button>
+    </div>
+  </section>
+
+  <section id="debug-log">
+    <h3>Debug Log</h3>
+    <textarea readonly id="logArea"></textarea>
+  </section>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    async function selectDirectory(fieldId) {
+      const path = await ipcRenderer.invoke('select-directory');
+      if (path) document.getElementById(fieldId).value = path;
+    }
+
+    async function findFile(fieldId) {
+      const file = await ipcRenderer.invoke('find-file');
+      if (file) document.getElementById(fieldId).value = file;
+    }
+
+    async function openDirectory(relativePath) {
+      const fullPath = resolveLocal(relativePath);
+      await ipcRenderer.invoke('open-path', fullPath);
+    }
+
+    async function openFile(relativePath) {
+      const fullPath = resolveLocal(relativePath);
+      await ipcRenderer.invoke('open-path', fullPath);
+    }
+
+    function resolveLocal(relativePath) {
+      const base = document.getElementById('projectDir').value || '.';
+      return require('path').join(base, relativePath);
+    }
+
+    function runCommand(cmd) {
+      ipcRenderer.send('run-command', { command: cmd });
+    }
+
+    ipcRenderer.on('log-message', (_, { message, level }) => {
+      const logArea = document.getElementById('logArea');
+      const line = document.createElement('div');
+      line.style.color = level;
+      line.textContent = message;
+      logArea.appendChild(line);
+      logArea.scrollTop = logArea.scrollHeight;
+    });
+
+    function generatePages() {
+      runCommand('node generatePages.js');
+    }
+
+    function importMovesJson() {
+      if (confirm("Are you sure you want to overwrite moves.json?")) {
+        runCommand(`node importMoves.js ${document.getElementById('importMovesPath').value}`);
+      }
+    }
+
+    function exportData() {
+      const format = document.getElementById('exportFormat').value;
+      const name = document.getElementById('exportFilename').value;
+      const output = document.getElementById('exportDirectory').value;
+      const template = document.getElementById('templateFile').value;
+      runCommand(`node exportMoves.js --format ${format} --name ${name} --out ${output} --template ${template}`);
+      document.getElementById('openGeneratedBtn').disabled = false;
+    }
+
+    function openLatestGeneratedFile() {
+      runCommand(`node openLatest.js`);
+    }
+  </script>
+</body>
+</html>

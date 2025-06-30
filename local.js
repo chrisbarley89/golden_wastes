@@ -2,43 +2,50 @@ const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
 
-// Define the directory for "public" and "local"
 const publicDir = path.join(__dirname, 'public');
 const localDir = path.join(__dirname, 'local');
+const atlasDir = path.join(localDir, 'Atlas');
+const hugoReplacement = `github.com/jack-hk/Atlas -> ${atlasDir.replace(/\\/g, '/')}`;
 
-// Create the "local" directory if it doesn't exist
-if (!fs.existsSync(localDir)) {
-    fs.mkdirSync(localDir);
-    console.log(`Created directory: ${localDir}`);
-} else {
-    console.log(`Directory already exists: ${localDir}`);
+// Cleanup public folder
+try {
+    if (fs.existsSync(publicDir)) {
+        fs.rmSync(publicDir, { recursive: true, force: true });
+        console.log(`✅ Deleted: ${publicDir}`);
+    } else {
+        console.log(`ℹ️  Directory does not exist: ${publicDir}`);
+    }
+} catch (err) {
+    console.error(`❌ Failed to delete public dir:`, err);
 }
 
-// Check if the "public" directory exists and remove it if so
-if (fs.existsSync(publicDir)) {
-    fs.rmSync(publicDir, { recursive: true, force: true });
-    console.log(`Successfully deleted ${publicDir}`);
-} else {
-    console.log(`The directory ${publicDir} does not exist.`);
+// Ensure local/Atlas exists
+if (!fs.existsSync(atlasDir)) {
+    console.error(`❌ Theme not found: ${atlasDir}`);
+    process.exit(1);
 }
 
-// Set environment variable for Hugo
-process.env.HUGO_MODULE_REPLACEMENTS = `github.com/jack-hk/Atlas -> ${localDir}\\Atlas`;
+console.log(`✅ Using local theme: ${atlasDir}`);
+console.log(`🔧 HUGO_MODULE_REPLACEMENTS: ${hugoReplacement}`);
 
-// Run hugo server using spawn
-const hugoProcess = spawn('hugo', ['server']);
+// Launch Hugo with full env passed in
+const hugoProcess = spawn('hugo', ['server'], {
+    shell: true,
+    env: {
+        ...process.env,
+        HUGO_MODULE_REPLACEMENTS: hugoReplacement,
+        PATH: process.env.PATH // ensure hugo is found
+    }
+});
 
-// Handle standard output
 hugoProcess.stdout.on('data', (data) => {
-    console.log(`stdout: ${data}`);
+    process.stdout.write(`stdout: ${data}`);
 });
 
-// Handle standard error output
 hugoProcess.stderr.on('data', (data) => {
-    console.error(`stderr: ${data}`);
+    process.stderr.write(`stderr: ${data}`);
 });
 
-// Handle the process exit
 hugoProcess.on('close', (code) => {
-    console.log(`Hugo process exited with code ${code}`);
+    console.log(`🚪 Hugo exited with code ${code}`);
 });
