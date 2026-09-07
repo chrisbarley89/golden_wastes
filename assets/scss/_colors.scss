@@ -17,6 +17,18 @@
   --color-background-light: #fffaf5;
   --color-background-overlay: rgba(0, 0, 0, 0.2);
 
+  /* Reference tables and section highlights */
+  --color-table-header-background: #eee6df;
+  --color-table-header-text: #51433c;
+  --color-table-border: #ded3c8;
+  --color-table-row-background: #f7f1eb;
+  --color-table-hover-background: color-mix(in srgb, var(--color-accent) 10%, var(--color-background-light));
+  --color-reference-highlight-background: #e8dfd5;
+  --color-reference-highlight-flash: #ddd1c5;
+  --color-reference-panel-background: #fbf5ee;
+  --color-reference-panel-border: #e4d8cd;
+  --color-reference-section-border: #cbb9a9;
+
   /* Interactive */
   --color-interactive-hover: rgba(0, 0, 0, 0.2);
   --color-interactive-active: rgb(230, 230, 230);
@@ -58,6 +70,18 @@
     255,
     0.1
   ); /* Light overlay for dark mode */
+
+  /* Reference tables and section highlights */
+  --color-table-header-background: #292727;
+  --color-table-header-text: #e2d3c6;
+  --color-table-border: #3b3430;
+  --color-table-row-background: #242222;
+  --color-table-hover-background: #302d2b;
+  --color-reference-highlight-background: #38322d;
+  --color-reference-highlight-flash: #474038;
+  --color-reference-panel-background: #24201e;
+  --color-reference-panel-border: #403633;
+  --color-reference-section-border: #63534b;
 
   /* Interactive */
   --color-interactive-hover: rgba(255, 255, 255, 0.1); /* Light hover effect */

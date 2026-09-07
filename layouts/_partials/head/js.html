@@ -46,3 +46,7 @@
 {{- if $carouselScript }}
   <script src="{{ $carouselScript.RelPermalink }}"></script>
 {{- end }}
+
+{{- with resources.Get "js/rules-reference.js" | js.Build (dict "minify" true "targetPath" "js/rules-reference.js") | fingerprint }}
+  <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+{{- end }}

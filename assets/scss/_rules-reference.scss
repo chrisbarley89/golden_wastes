@@ -1,0 +1,295 @@
+/* Rules references use the site's font scale and light/dark color tokens. */
+.wiki__content .rules-reference {
+  min-width: 0;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+
+  .rules-intro {
+    display: flow-root;
+    max-width: 68ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .rules-lead, > p:first-child {
+    max-width: 58ch;
+    margin: 0 0 1rem;
+    color: var(--color-ink);
+    font-size: 1.15em;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  p { margin: 0 0 0.9em; }
+  .rules-prose, .rules-ability > p, > p { max-width: 68ch; }
+  strong { color: var(--color-ink); }
+  ul, ol { margin: 0.75em 0 1em; padding-inline-start: 1.4em; }
+  li + li { margin-top: 0.35em; }
+
+  h2, h3, h4, h5, h6 {
+    color: var(--color-ink);
+    line-height: 1.3;
+    text-wrap: balance;
+    scroll-margin-block: 1.5rem;
+  }
+
+  h2 { clear: both; margin: 2rem 0 1rem; font-size: 1.6em; }
+  h3 { margin: 1.6rem 0 0.65rem; font-size: 1.2em; }
+  h4, h5, h6 { margin: 1.25rem 0 0.5rem; font-size: 1.08em; }
+
+  .rules-gain__icon {
+    display: inline-block;
+    width: 0.72em;
+    height: 0.72em;
+    margin-inline-end: 0.45em;
+    color: var(--color-ink);
+    vertical-align: 0.01em;
+  }
+
+  /* A small index keeps long class pages practical during play. */
+  .rules-jump {
+    display: flex;
+    clear: both;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.8rem;
+    margin: 1.25rem 0 1.5rem;
+    padding: 0.65rem 0;
+    border-block: 1px solid var(--color-table-border);
+    font-size: 0.9em;
+    line-height: 1.4;
+
+    a { display: inline-flex; align-items: center; min-height: 2rem; }
+    &__label, &__levels > span { color: var(--color-text-muted); }
+    &__label { font-weight: 700; }
+    &__levels {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-inline-start: auto;
+      font-variant-numeric: tabular-nums;
+      a { justify-content: center; min-width: 1.7rem; }
+    }
+  }
+
+  details {
+    clear: both;
+    margin: 0.8rem 0;
+    border: 1px solid var(--color-table-border);
+    border-radius: 0.25rem;
+    background: var(--color-background-light);
+    scroll-margin-block: 1.5rem;
+
+    > summary {
+      padding: 0.65rem 0.9rem;
+      color: var(--color-table-header-text);
+      background: var(--color-table-header-background);
+      font-weight: 700;
+      line-height: 1.45;
+      cursor: pointer;
+      &::marker { color: var(--color-ink); font-size: 0.8em; }
+      &:hover { background: var(--color-table-hover-background); }
+    }
+
+    &[open] > summary { border-bottom: 1px solid var(--color-table-border); }
+    > p { margin: 0.9rem; }
+    > .rules-table { margin: 0; border: 0; border-radius: 0; }
+  }
+
+  .rules-table {
+    clear: both;
+    max-width: 100%;
+    margin: 1rem 0 1.5rem;
+    overflow-x: auto;
+    border: 1px solid var(--color-table-border);
+    border-radius: 0.25rem;
+    background: var(--color-background-light);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-text-muted) var(--color-background-default);
+  }
+
+  table {
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-collapse: collapse;
+    font: inherit;
+    line-height: 1.45;
+    text-align: left;
+
+    th, td {
+      padding: 0.6rem 0.9rem;
+      border: 0;
+      border-bottom: 1px solid var(--color-table-border);
+      vertical-align: top;
+      font-size: inherit;
+    }
+    thead th {
+      color: var(--color-table-header-text);
+      background: var(--color-table-header-background);
+      font-weight: 700;
+    }
+    tbody th { color: var(--color-ink); font-weight: 700; text-align: left; }
+    tbody tr:nth-child(even) { background: var(--color-table-row-background); }
+    tbody tr:hover { background: var(--color-table-hover-background); }
+    tbody tr:last-child > * { border-bottom: 0; }
+    p:last-child { margin-bottom: 0; }
+    h2, h3 { margin: 0; font: inherit; font-weight: 700; }
+    &[aria-label='Class progression'] td:nth-child(-n + 2),
+    &[aria-label='Class skills'] td:first-child {
+      width: 1%;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    &[aria-label='Class progression'] td:first-child a { display: block; text-align: center; }
+    &[aria-label='Skills'] tbody th { width: 23%; }
+  }
+
+  .rules-table--overview {
+    tbody th { width: 23%; }
+    tbody tr { background: transparent; }
+    tbody tr:hover { background: var(--color-table-hover-background); }
+  }
+
+  .rules-table--options {
+    td:first-child { width: 3rem; text-align: center; font-variant-numeric: tabular-nums; }
+  }
+
+  .rules-gain-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li + li { margin: 0; }
+  }
+
+  /* Separate the level, granted abilities, and selectable talents visually. */
+  .rules-level {
+    clear: both;
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-reference-section-border);
+  }
+
+  .rules-level__heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.35rem;
+    h2 { margin: 0; }
+    > a { flex-shrink: 0; font-size: 0.85em; }
+  }
+
+  .rules-ability {
+    margin: 0 0 2rem;
+    > h3 { margin: 0 0 0.7rem; }
+    > :last-child { margin-bottom: 0; }
+    &:last-child { margin-bottom: 0; }
+  }
+
+  .rules-talents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    gap: 0.85rem;
+    margin: 1.25rem 0 1.75rem;
+  }
+
+  .rules-talent {
+    min-width: 0;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--color-reference-panel-border);
+    border-radius: 0.2rem;
+    background: var(--color-reference-panel-background);
+    line-height: 1.55;
+
+    > h4, > h5, > h6 { margin: 0 2rem 0.55rem 0; font-size: 1.1em; }
+    > :last-child { margin-bottom: 0; }
+    &__number {
+      float: right;
+      margin-inline-start: 0.5rem;
+      color: var(--color-text-muted);
+      font-size: 0.75em;
+      font-variant-numeric: tabular-nums;
+    }
+    .rules-talents { grid-template-columns: minmax(0, 1fr); }
+  }
+
+  /* Older imports also gain a more comfortable reading measure. */
+  > h4, > h5, > h6 { max-width: 68ch; padding-top: 0.8rem; border-top: 1px solid var(--color-table-border); }
+  > hr { clear: both; margin: 2.5rem 0 1.25rem; border: 0; border-top: 1px solid var(--color-reference-section-border); }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    &:hover { text-decoration-thickness: 2px; }
+    &:active, &.is-current-anchor { background: var(--color-reference-highlight-background); }
+  }
+
+  :is(a, summary, .rules-table):focus-visible {
+    outline: 2px solid var(--color-interactive-focus);
+    outline-offset: 3px;
+  }
+
+  :is(h2, h3, h4, h5, h6, details):target,
+  .is-anchor-highlighted {
+    border-radius: 0;
+    background: var(--color-reference-highlight-background);
+    box-shadow: none;
+  }
+  tr:has(:target), tr.is-anchor-highlighted { background: var(--color-reference-highlight-background); }
+  .is-anchor-highlighted { animation: rules-anchor-flash 1.2s ease-out; }
+
+  @media (max-width: 600px) {
+    .rules-talents { grid-template-columns: minmax(0, 1fr); }
+    .rules-talent { padding: 0.9rem; }
+    .rules-jump__levels { width: 100%; margin-inline-start: 0; }
+    .rules-jump a { min-height: 2.75rem; }
+    .rules-jump__levels a { min-width: 1.75rem; }
+    .rules-level { margin-top: 2rem; }
+    .rules-level__heading { gap: 0.5rem; }
+    h2 { font-size: 1.4em; }
+    th, td { padding: 0.6rem 0.7rem; }
+    table[aria-label='Backgrounds'] { min-width: 34rem; }
+    table[aria-label='Skills'] { min-width: 27rem; }
+    .rules-gain-list { display: block; li + li { margin-top: 0.3em; } }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .is-anchor-highlighted { animation: none; }
+  }
+
+  @media print {
+    .rules-jump, .rules-level__heading > a { display: none; }
+    .rules-talents { display: block; }
+    .rules-talent { break-inside: avoid; margin-bottom: 1rem; }
+    .rules-table { overflow: visible; }
+  }
+}
+
+/* Limit these infobox adjustments to imported reference pages. */
+.wiki:has(.rules-reference) .wiki__infobox {
+  border: 1px solid var(--color-table-border);
+  border-radius: 0.25rem;
+  margin-left: 1.5rem;
+
+  @media (max-width: 767px) {
+    margin-inline: 1rem;
+  }
+}
+
+.wiki:has(.rules-reference) .wiki__infobox-header {
+  background: var(--color-table-header-background);
+  color: var(--color-table-header-text);
+  text-align: left;
+  padding: 0.6rem 0.9rem;
+}
+
+@keyframes rules-anchor-flash {
+  from { background-color: var(--color-reference-highlight-flash); }
+  to { background-color: var(--color-reference-highlight-background); }
+}
