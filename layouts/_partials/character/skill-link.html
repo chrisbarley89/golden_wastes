@@ -1,0 +1,2 @@
+{{- $anchor := printf "skill-%s" (. | anchorize) -}}
+<a href="{{ "/character/skills/" | relURL }}#{{ $anchor }}">{{ . }}</a>

@@ -1,0 +1,31 @@
+{{ $name := .Get "name" | default .Page.Title }}
+{{ $entries := where (where (partialCached "character/entries.html" "talesofargosa") "type" "Race") "name" $name }}
+{{ if ne (len $entries) 1 }}{{ errorf "Expected one race named %q at %s" $name .Position }}{{ end }}
+{{ with index $entries 0 }}
+  <div class="character-profile race-profile">
+    <h2 id="overview">Overview</h2>
+    {{ .descriptionHtml | safeHTML }}
+    <h2 id="strengths">Strengths</h2>
+    <ul>{{ range $.Page.Params.strengths }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+    <h2 id="racial-benefits">Racial benefits</h2>
+    {{ with $.Page.Params.benefit_condition }}<p><strong>When these benefits apply:</strong> {{ . }}</p>{{ end }}
+    <div class="character-table" role="region" aria-label="Racial benefits" tabindex="0">
+      <table>
+        <thead><tr><th scope="col">Gain</th><th scope="col">Effect and limits</th></tr></thead>
+        <tbody>
+          {{ range $i, $benefit := .mechanics.benefits }}
+            {{ $label := printf "Benefit %d" (add $i 1) }}
+            {{ if lt $i (len ($.Page.Params.benefit_labels | default slice)) }}{{ $label = index $.Page.Params.benefit_labels $i }}{{ end }}
+            <tr><th scope="row">{{ $label }}</th><td>{{ $benefit }}</td></tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+    <h2 id="building-your-character">Building your character</h2>
+    <ul>
+      <li>Choose a <a href="{{ "/categories/class/" | relURL }}">class</a> to define your adventuring specialities.</li>
+      <li>Choose a <a href="{{ "/character/backgrounds/" | relURL }}">background</a> to establish your earlier life and its gains.</li>
+      <li>Use the <a href="{{ "/character/skills/" | relURL }}">skills reference</a> to see what your training covers.</li>
+    </ul>
+  </div>
+{{ end }}

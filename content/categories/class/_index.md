@@ -53,26 +53,29 @@ references: []
 portal_view: card
 showcase_tiles: 0
 min_showcase_tiles: 0
-card_count: 3
+card_count: 6
 min_card_count: 3
 random_cards: false
 cards:
-- /class/artificer/
+- /class/barbarian/
+- /class/bard/
+- /class/fighter/
 - /class/monk/
-- /class/cultist/
+- /class/rogue/
+- /class/sharpshooter/
 truncate_limit: 150
 carousel_on_desktop: false
 show_alphabet: false
 show_layout_toggle: false
 list_layout: ''
 show_intro_text: true
-intro_text: ''
+intro_text: 'Choose your path: Barbarian, Bard, Fighter, Monk, Rogue, or Sharpshooter. Explore each class and its abilities from levels 1 to 9.'
 show_left_textbox: false
 left_textbox_title: ''
 left_textbox_text: ''
 show_right_textbox: false
 right_textbox_title: ''
 right_textbox_text: ''
-show_bottom_textbox: true
+show_bottom_textbox: false
 bottom_textbox_text: ''
 ---

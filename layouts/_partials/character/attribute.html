@@ -1,0 +1,2 @@
+{{- $names := dict "str" "Strength" "dex" "Dexterity" "con" "Constitution" "int" "Intelligence" "perc" "Perception" "will" "Willpower" "cha" "Charisma" "none" "None specified" -}}
+{{- return (index $names . | default .) -}}

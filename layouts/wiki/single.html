@@ -1,4 +1,13 @@
 {{ define "main" }}
+  {{/* Render shortcodes first so class mechanics are available to the infobox. */}}
+  {{ $content := .Content }}
+  {{ $infobox := .Params.infobox | default dict }}
+  {{ $infoboxLabels := $infobox.labels | default slice }}
+  {{ with .Store.Get "class-mechanics" }}
+    {{ if not $infobox }}{{ $infobox = dict "header" $.Title }}{{ end }}
+    {{ $infoboxLabels = $infoboxLabels | append (dict "label" "Key attribute" "item" (partial "character/attribute.html" .keyAttribute)) }}
+    {{ $infoboxLabels = $infoboxLabels | append (dict "label" "HP multiplier" "item" .hpMultiplier) }}
+  {{ end }}
   {{ $showWikiDate := default false site.Params.wiki.show_date }}
   {{ if isset .Params "show_date" }}
     {{ $showWikiDate = .Params.show_date }}
@@ -80,11 +89,11 @@
     {{ end }}
 
     {{- $showInfobox := false -}}
-    {{- with .Params.infobox -}}
+    {{- with $infobox -}}
       {{- $hasHeader := ne (strings.TrimSpace (.header | default "")) "" -}}
       {{- $hasImage := ne (strings.TrimSpace ((or .image .icon) | default "")) "" -}}
       {{- $hasRows := false -}}
-      {{- range .labels -}}
+      {{- range $infoboxLabels -}}
         {{- $hasLabel := ne (strings.TrimSpace (.label | default "")) "" -}}
         {{- $hasValue := ne (strings.TrimSpace (.item | default "")) "" -}}
         {{- if or .divider $hasLabel $hasValue -}}
@@ -96,7 +105,7 @@
 
     {{ if $showInfobox }}
       <aside class="wiki__infobox" data-pagefind-ignore>
-        {{ with .Params.infobox }}
+        {{ with $infobox }}
           {{- $infoboxImage := (or .image .icon) -}}
           {{- $infoboxImageSize := (or .imageSize .iconSize) -}}
           {{- $infoboxImageMargin := (or .imageMargin .iconMargin) -}}
@@ -139,14 +148,14 @@
           {{ end }}
 
           {{- $hasRows := false -}}
-          {{- range .labels -}}
+          {{- range $infoboxLabels -}}
             {{- if or .divider (ne (strings.TrimSpace (.label | default "")) "") (ne (strings.TrimSpace (.item | default "")) "") -}}
               {{- $hasRows = true -}}
             {{- end -}}
           {{- end -}}
           {{ if $hasRows }}
             <div class="wiki__infobox-content">
-              {{ range .labels }}
+              {{ range $infoboxLabels }}
                 {{- $hasLabel := ne (strings.TrimSpace (.label | default "")) "" -}}
                 {{- $hasValue := ne (strings.TrimSpace (.item | default "")) "" -}}
                 {{ if or .divider $hasLabel $hasValue }}
@@ -183,7 +192,7 @@
 
 
     <div class="wiki__content">
-      {{ .Content }}
+      {{ $content }}
     </div>
 
     {{ partial "see-also.html" . }}

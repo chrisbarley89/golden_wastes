@@ -1,0 +1,2 @@
+{{- $source := resources.Get "data/talesofargosa.json" | transform.Unmarshal -}}
+{{- return $source.entries -}}

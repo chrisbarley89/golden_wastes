@@ -1,0 +1,2692 @@
+{
+  "schemaVersion": 1,
+  "system": "talesofargosa",
+  "generatedAt": "2026-09-05T17:03:01.821Z",
+  "entryCount": 130,
+  "entries": [
+    {
+      "name": "Adaptable",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Switch between fighting styles at a moment's notice",
+      "descriptionHtml": "<p>Your combat expertise allows you to switch weapons and fighting styles/stances at a moment&rsquo;s notice. At 1st level, you know a number of styles equal to your Strength modifier; roll 1d12 on the below list to determine which. With each new level, learn one additional style of your choosing.</p>\n<p>You begin an adventure with one use of this ability per level. Unless noted otherwise, you may expend a use of this ability as part of your normal action, choosing one stance to apply. You may regain expended uses by taking Short or Long Rests.</p>\n<p>At 1st level, choose one of your styles to be your default style. You gain the benefits of your default style at all times, except when you switch to another using Adaptable. You may change your default style when you level up, if you wish.</p>\n<p>When you expend a use of Adaptable, choose one of your styles and apply its benefits until the end of that combat. Stance benefits do not stack with each other, only the current stance applies. If swapping armaments, you stow any readied gear as part of your action. You may revert to your default style at any time during your turn (no action, and this does not expend a use of Adaptable).</p>",
+      "mechanics": {
+        "category": "class",
+        "uses": {
+          "current": "1",
+          "max": "1"
+        },
+        "roll": {
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "table",
+          "table": [
+            {
+              "key": "one",
+              "value": "Charger"
+            },
+            {
+              "key": "two",
+              "value": "Dual Weapons"
+            },
+            {
+              "key": "three",
+              "value": "Long Reach"
+            },
+            {
+              "key": "four",
+              "value": "Opportunist"
+            },
+            {
+              "key": "five",
+              "value": "Protector"
+            },
+            {
+              "key": "six",
+              "value": "Ranged"
+            },
+            {
+              "key": "seven",
+              "value": "Single Weapon"
+            },
+            {
+              "key": "eight",
+              "value": "Two Hander"
+            },
+            {
+              "key": "nine",
+              "value": "Unarmed"
+            },
+            {
+              "key": "ten",
+              "value": "Brutal"
+            },
+            {
+              "key": "eleven",
+              "value": "Rear Guard"
+            },
+            {
+              "key": "twelve",
+              "value": "Expert Guard"
+            },
+            {
+              "key": "tableSize",
+              "value": "d12"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Backstab",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "+4 atk bonus and additional 1d8 dmg against surprised foe",
+      "descriptionHtml": "<p>You are a master of ambush and assassination. From 1st level, once per turn, when making a melee attack against a target that is surprised by you, gain a +4 attack bonus and inflict an additional 1d8 damage. At 5th level the damage increases to 3d6.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "dmg",
+          "percentile": 33,
+          "dieNumber": "1",
+          "dieSize": "d8"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Bardic Knowledge",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Cha on Lore Checks, Roll Cha to understand language",
+      "descriptionHtml": "<p>By 2nd level, your studies have earned you an ear for languages and a broad knowledge of cultures. You may make a Charisma check to understand a few key words of a language you don&rsquo;t formally know (and/or perhaps speak a couple of stilted words; GM&rsquo;s call). Additionally, you roll against Cha (not Int) when recalling lore about history, culture, legends, and etiquette.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "cha",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Battlefield Scavenger",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "1-in-6 ammo; Detection recovers ammo/items",
+      "descriptionHtml": "<p>At 2nd level you have become adept at recovering ammunition after a battle. Your Ammunition Rolls are always a 1-in-6 chance. After a fight where you would run out of ammo you may make a Perception (Detection) check and on a great success you find enough ammo to go back to making Ammunition Rolls.</p>\n<p>Additionally the GM may call for you to make a Perception (Detection) check after a battle and on a success you find an item that is particularly useful to your current goals or situation.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Blind Sense",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Downgrade Blindness conditions 1d6x10 mins",
+      "descriptionHtml": "<p>By applying the proper techniques, you temporarily heighten your senses, downgrading Blind to Near Blind, or negating Near Blind. The effect lasts 1d6 x 10 minutes.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "dur",
+          "percentile": 33,
+          "dieNumber": "1",
+          "dieSize": "d6"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Brutal",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "+2 to Trauma rolls on Nat19 with Melee",
+      "descriptionHtml": "<p>When you inflict a Nat 19 effect with a melee weapon, add +2 to Trauma rolls (does not stack with similar modifiers).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Cat's Grace",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Turn failed climb, acrobatics, falling, etc. check to success",
+      "descriptionHtml": "<p>Subject to GM discretion, you may turn a failed save or check relating to climbing, acrobatics, or falling, into a success.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Charger",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Enemies don't gain bonus against charge, targets knocked prone",
+      "descriptionHtml": "<p>When you take the charge action, enemies do not gain the usual +2 attack bonus against you, and if you hit, the target must make a Luck (Str) save or be knocked prone and/or pushed a short distance.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Choking Dust",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "1d4 targets, Luck(Con) save or rendered mute 1d4 rnds",
+      "descriptionHtml": "<p>Up to 1d4 targets within Melee range must make a Luck (Con) save or be rendered mute for 1d4 rounds.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "tar",
+          "percentile": 33,
+          "dieNumber": "1",
+          "dieSize": "d4"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Counterattack",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Spend Reroll when damaged to make single unarmed attack",
+      "descriptionHtml": "<p>At 7th level, after being damaged by an enemy, you may spend a Reroll to make a single unarmed attack against that foe. This ability may not be used more than once per round.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Deadly Aim",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Ignore cover AC; ranged Nat 19 effects on 18",
+      "descriptionHtml": "<p>When you make a ranged attack, targets lose any AC bonus due to cover. In addition, if you miss your target you never reroll the attack against an ally in the same melee. Finally, Nat 19 effects also happen on a nat 18 with ranged weapons.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Deadly Strikes",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Expanded Crit Range, Nat19 effects occur on Crit",
+      "descriptionHtml": "<p>Your battle training helps you land crippling blows. When using a weapon, your crit range expands to 19-20, and Nat 19 effects also occur on a crit.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Dream Sight",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Will check to sense magic (as Pierce the Veil, but not magical)",
+      "descriptionHtml": "<p>You may attempt a Will check to sense magic, treat as Pierce the Veil, but this ability is not magical.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "will",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Dual Weapons",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Gain +1 for each missed extra attack when 2WF",
+      "descriptionHtml": "<p>When Two Weapon Fighting, every time you miss with your Extra attack, you gain +1 to hit (cumulative) on subsequent Extra attacks until it hits.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Expert Guard",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Fumbled weapon attacks become normal misses",
+      "descriptionHtml": "<p>Your fumbled weapon attacks become ordinary misses instead. You may activate this style when you roll a fumble.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Ferocious Rage",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Bonus to melee, reroll str, reduce dmg, inflict trauma, negate mental effect",
+      "descriptionHtml": "<p>As a barbarian you may harness a primal and ferocious rage, transforming you into a fearsome and bloodthirsty combatant.</p>\n<p>You begin an adventure with one use of this ability per level. Unless noted otherwise, you may expend a use of this ability as part of your normal action to rage. When you do so, choose one effect from the list below to apply. If an effect requires a Con check, you may use a Reroll.</p>\n<p>Your rage may be loud (bellowing, etc) or quiet (burning glare, etc) which you decide each time you invoke it. You may regain expended uses by taking Short or Long Rests.</p>\n<ul>\n<li>Gain a +2 bonus on melee attack and damage rolls, and Luck rolls. Also reroll any fumbled attacks. These effects last a number of rounds equal to your Con modifier.</li>\n<li>If you fail a Str check attempting a feat of physical power (excluding attacks), you may reroll it (does not cost a Reroll).</li>\n<li>Once per combat, when you suffer damage, you may trigger your rage to reduce that damage by half.</li>\n<li>Once per target, after causing damage with a melee weapon, you may attempt a Con check to also inflict a relevant Trauma roll.</li>\n<li>When you are subject to a mental effect (magical or otherwise) such as fear, charm, confusion, or compulsion, you may trigger your rage to attempt a Con check to negate it. Madness cannot be negated using this ability.</li>\n</ul>",
+      "mechanics": {
+        "category": "class",
+        "uses": {
+          "current": "1",
+          "max": "1"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Finisher",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Add Backstabe dmg to Wounded target",
+      "descriptionHtml": "<p>From 1st level you are adept at picking off injured foes. When you hit a Wounded target (p.83), you may add your backstab damage (once per target, and melee attacks only).</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "dmg",
+          "percentile": 33,
+          "dieNumber": "1",
+          "dieSize": "d8"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Flash Powder",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "1d4 targets, Melee range, Luck(Dex) or Blind until next turn",
+      "descriptionHtml": "<p>Up to 1d4 targets within Melee range must make a Luck (Dex) save or be Blind until the end of their next turn.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "tar",
+          "percentile": 33,
+          "dieNumber": "1",
+          "dieSize": "d4"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Fork the River",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Will check to transfer damage to another enemy",
+      "descriptionHtml": "<p>When damaged by a melee attack, you may trigger this ability to make a Will check to transfer the damage to another enemy instead (within Melee range of yourself or the original attacker). This ability may not be used more than once per round.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "will",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Formless Water",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Gain a bonus equal to Will mod to AC, Luck(Dex), and Defensive Dex Checks",
+      "descriptionHtml": "<p>Until the start of your next turn, gain a bonus equal to your Will mod to AC, Luck (Dex) saves, and defensive Dex checks. You may trigger this ability after being hit or otherwise targeted by an opponent (potentially turning a hit into a miss, etc).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Glue Pot",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Target within Far range, Luck(Str) or Grabbed (Str 14)",
+      "descriptionHtml": "<p>On a failed Luck (Str) save, one target within Far range is Grabbed (Str 14).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Heaven's Leap",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Jump up to Close range, Gain Rogue Skirmisher ability",
+      "descriptionHtml": "<p>You jump up to Close range in any direction. GM discretion applies, and a staff, creature, or other terrain might be required to launch from. You gain the Rogue Skirmisher ability until the end of your turn.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Hidden Blade",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Reroll failed melee attack",
+      "descriptionHtml": "<p>You may reroll a failed melee attack.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Inspire Greatness",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Apply Cha mod to roll, second Luck save, last stand",
+      "descriptionHtml": "<p>At 1st level, your unifying presence builds trust within the party and inspires its companions to moments of greatness. You begin an adventure with one use of this ability per level. You may use Inspire Greatness at any time (no action) provided an ally is within Far range, and able to see or hear you. When you inspire an ally, grant them one of the following effects. Expended uses may be regained by taking Short or Long Rests.</p>\n<ul>\n<li>Apply a bonus equal to your Cha modifier on any single roll (excluding Trauma rolls). You may use this ability after seeing the result of the roll. You may use this ability on your own rolls if you can see or hear an ally within Far range. The GM may limit the kinds of rolls this ability applies to and/or if it stacks with other modifiers p.64.</li>\n<li>If an ally has suffered an adverse magical effect for at least one round, they may attempt a second Luck save to end it. If successful, the PC&rsquo;s Luck score is reduced by two points instead of one. This ability is not applicable to instant durations or permanent effects, and may not be activated more than once per round or effect.</li>\n<li>If an ally is reduced to zero hp, that ally gains an immediate melee or ranged attack against their opponent. The ally is reduced to zero hp regardless of the outcome of their attack (any hits occur simultaneously, which may lead to both combatants being incapacitated).</li>\n</ul>",
+      "mechanics": {
+        "category": "class",
+        "uses": {
+          "current": "1",
+          "max": "1"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Iron Fist",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Stun opponent if they fail Luck(Will) save",
+      "descriptionHtml": "<p>On a failed Luck (Will) save, one living target within Melee range is Stunned. Large creatures may gain a bonus on the save, and very large creatures may be immune (GM&rsquo;s call).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Killer Instinct",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "If you reduce a target to 9 or less, reduce them to 0hp",
+      "descriptionHtml": "<p>At 7th level, your instinctual ferocity deepens; if you reduce a target to single digit hit points (9 or less) they are reduced to zero hit points instead.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Lethal Precision",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Spend Reroll to reroll any or all Backstab dmg or # targets affected by trick",
+      "descriptionHtml": "<p>At 7th level, you may spend a Reroll use to reroll any or all backstab damage dice, or the number of targets affected by a trick.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Long Reach",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Make 1 free melee attack (per combat) when first engaging a foe",
+      "descriptionHtml": "<p>When using a Second Rank weapon, you may make a free melee attack when you first engage a foe. Once per battle only (ie not per foe).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Martial Arts",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Unarmed Strikes 1d6 dmg, 1d12 Blunt Trauma Nat19",
+      "descriptionHtml": "<p>You are a master of unarmed combat, causing 1d6 damage (Nat 19 Blunt Trauma 1d12) with your hands, feet, and other body parts. You may apply your Dex mod to your melee attack and damage rolls (armed or unarmed) rather than Strength. You make an Extra attack each turn with a punch, kick, headbutt, etc, as if Two Weapon Fighting, but this Extra attack does not suffer disadvantage (p.80).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Master of Arms",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Expanded Crit Range, Spend Reroll for 50% chance parry",
+      "descriptionHtml": "<p>At 7th level, when using a weapon, your crit range expands to 18-20. Additionally, when you are hit by a melee attack, you may spend a Reroll to gain a 50% chance of parrying the attack, negating it. GM discretion applies; attacks while surprised or from very large monsters may not be subject to parrying.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Mind Over Matter",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Delay effect of Injury until next Long Rest",
+      "descriptionHtml": "<p>You delay the effect of a persistent physical injury (eg a Trauma or Injuries &amp; Setbacks result) until the next Long Rest. Only one injury may be delayed at a time.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Moment of Clarity",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Ignore vision penalties, Will check to pinpoint invisible foes",
+      "descriptionHtml": "<p>Until the end of your next turn, you ignore penalties due to poor visibility, and may make a Will check to pinpoint invisible or hidden foes within Far range.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "will",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Monk Techniques",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Highly effective fighting techniques",
+      "descriptionHtml": "<p>You employ secret and highly effective fighting techniques, passed down from master to pupil over the centuries. At 1st level, you know a number of techniques equal to your Will modifier; roll 1d12 on the below list to determine which. With each new level, learn one additional technique of your choosing.</p>\n<p>You begin an adventure with one use of this ability per level. Unless noted otherwise, you may expend a use of this ability as part of your normal action, choosing one technique to apply. If a technique requires a Will check, you may use a Reroll. You may regain expended uses by taking Short or Long Rests.</p>",
+      "mechanics": {
+        "category": "class",
+        "uses": {
+          "current": "1",
+          "max": "1"
+        },
+        "roll": {
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "table",
+          "table": [
+            {
+              "key": "one",
+              "value": "Formless Water"
+            },
+            {
+              "key": "two",
+              "value": "Spirit Strike"
+            },
+            {
+              "key": "three",
+              "value": "Moon Shields Sun"
+            },
+            {
+              "key": "four",
+              "value": "Heaven's Leap"
+            },
+            {
+              "key": "five",
+              "value": "Strength of One"
+            },
+            {
+              "key": "six",
+              "value": "Mind Over Matter"
+            },
+            {
+              "key": "seven",
+              "value": "Purity of Self"
+            },
+            {
+              "key": "eight",
+              "value": "Moment of Clarity"
+            },
+            {
+              "key": "nine",
+              "value": "Perfection of Will"
+            },
+            {
+              "key": "ten",
+              "value": "Fork the River"
+            },
+            {
+              "key": "eleven",
+              "value": "Dream Sight"
+            },
+            {
+              "key": "twelve",
+              "value": "Iron Fist"
+            },
+            {
+              "key": "tableSize",
+              "value": "d12"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Moon Shields Sun",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Will check to deflect a ranged attack",
+      "descriptionHtml": "<p>You may trigger this ability when hit by a non magical ranged attack (thrown dagger, arrow, etc). On a successful Will check, you deflect the attack, turning it into a miss. Critical hits cannot be deflected. This ability may not be used more than once per round.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "will",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Open Hand Versatility",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Nat19 trip, disarm, or push foe",
+      "descriptionHtml": "<p>By 2nd level, you are an expert at controlling and subduing your opponents. On a Nat 19 unarmed attack roll, you may grab, trip, disarm, or push the target a short distance.</p>",
+      "mechanics": {
+        "category": "class",
+        "uses": {
+          "current": "1",
+          "max": "1"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Opportunist",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Immediate free attack when you reduce a foe to 0 HP",
+      "descriptionHtml": "<p>When you reduce a foe to zero hit points with a melee or thrown attack, immediately make another melee or thrown attack. You may activate this style when you reduce a target to zero hit points (no action, but must be during your turn). You may not use this ability more than once per round.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Perfection of Will",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Make a Will check instead of Luck(Will) save",
+      "descriptionHtml": "<p>When required to make a Luck (Will) save, you may trigger this ability to make a Will check instead.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "will",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Protector",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Auto-success on Init checks for Rescues, Shields +2 AC",
+      "descriptionHtml": "<p>You automatically succeed on Initiative checks to trigger Rescue Exploits, and shields grant +2 AC instead of +1.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Purity of Self",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Will check to negate disease or poison",
+      "descriptionHtml": "<p>When subject to a disease or poison (including magical), you may trigger this ability to make a Will check to negate it.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "will",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Quick Reflexes",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Reroll Initiative and use best result",
+      "descriptionHtml": "<p>You may reroll your Initiative check and use the best result.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "init",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Rallying Shout",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Expanded Crit Range, Spend Reroll for ally to reroll attack",
+      "descriptionHtml": "<p>At 5th level, you employ a mix of unconventional fighting techniques, developed through study and adventure, expanding your crit range to 19-20. Additionally, if an ally within Far range that can see or hear you misses with an attack, you may spend a Reroll to allow them to reroll their attack. You may also use this ability on your own failed attacks, provided you can see or hear an ally within Far range. This ability may only be used once per round.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Ranged",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Targets lose cover AC bonus, No reroll against allies on miss",
+      "descriptionHtml": "<p>When you make a ranged or thrown attack, targets lose any AC bonus due to cover. Additionally if you miss your target you never reroll the attack against an ally in the same melee.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Ranged Mastery",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Ranged crit 19-20; Reroll removes long-range disadv",
+      "descriptionHtml": "<p>At 7th level you have mastered ranged combat. Your crit range expands to 19-20 with ranged attacks and Nat 19 effects happen on a natural roll of 20 as well. You may also spend a Reroll to ignore the disadvantage for shooting at long range.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Rapid Dose",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Apply poison or drink potion, etc.",
+      "descriptionHtml": "<p>You may apply a single dose of poison, or drink a potion (or similar).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Rearguard",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "All party members gain ADV on Party Retreat tests",
+      "descriptionHtml": "<p>You may activate this style at the start of a round, prior to your turn. You adopt defensive manoeuvres, directing a tactical retreat as you guide your allies to safety. All party members gain advantage on all Party Retreat related tests.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Recon Leader",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Ally Close may reroll failed stealth roll",
+      "descriptionHtml": "<p>If an ally within Close range fails a stealth related roll, you may trigger this ability to cause them to roll again and apply the best result.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Second Attack",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Expanded Crit, Second Attack when using Attack Action",
+      "descriptionHtml": "<p>At 5th level, your crit range expands to 19-20, and when you use an action to attack, you make two attacks instead of one. If Two Weapon Fighting, you don&rsquo;t get a second Extra attack (p.80).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Second Attack",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Make two attacks when using an action to attack",
+      "descriptionHtml": "<p>At 5th level, when you use an action to attack, you make two attacks instead of one. If Two Weapon Fighting, you don&rsquo;t get a second Extra attack (p.80).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Second Attack",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Make 2 attacks when taking the Attack action",
+      "descriptionHtml": "<p>At 5th level, when you use an action to attack, you make two attacks instead of one. If Two Weapon Fighting, you do not gain a second Extra attack.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Silver Tongued",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "ADV on Gather Info, performances, and Persuasion/Deception",
+      "descriptionHtml": "<p>At 1st level you have the gift of the gab, and are skilled in the art of soliciting rumours, gossip, and other intel. Gain advantage when using the Gather Information skill, when performing to entertain or inspire, and when using either the Persuasion or Deception skill (choose one).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Single Weapon",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "+2 Init, Def Luck(Dex), & Party Retreats when holding single 1H weapon",
+      "descriptionHtml": "<p>When armed with a one handed weapon and your other hand empty (exception: holding a light), gain +2 Init, defensive Luck (Dex) rolls, &amp; Party Retreats.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Sixth Sense",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Con check Great Success to act normally during ambush",
+      "descriptionHtml": "<p>By 2nd level you have seen enough to cultivate a sixth sense for hidden danger. Whenever you are ambushed or surprised, make a Con check (Reroll available). On a Great Success you may act normally.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "con",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Skirmish Archery",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Spend uses for ranged techniques; +1 known/lvl",
+      "descriptionHtml": "<p>Where most try to stay as far as possible from their foes with a ranged weapon, you don't mind being right in the thick of things. Whether from afar or right in the melee, you have learned to rain death on your enemies with a variety of techniques and specialized ammo.</p>\n<p>At 1st level you know a number of techniques equal to your Perception modifier; roll 1d12 on the list to determine which. With each new level you learn one additional technique of your choice.</p>\n<p>You begin an adventure with one use of this ability per level. Unless noted otherwise, you may expend a use of this ability as part of your normal action. You may regain expended uses by taking Short or Long Rests. Despite the names of some of these abilities having arrow in them, they can be used with any ranged weapon, even thrown ones.</p>\n<ol>\n<li><strong>Blunt Arrow:</strong> After hitting with a ranged attack the target must make a Luck (Con) save or be Dazed. If you reduce the target to 0 HP you may knock them unconscious and if you inflict trauma, roll on the Blunt Trauma table.</li>\n<li><strong>Bomb Arrow:</strong> After hitting with a ranged attack the target must make a Luck (Str) save or be knocked prone or pushed a short distance. If you inflict trauma, roll on the Blast Trauma table.</li>\n<li><strong>Point Blank Shooting:</strong> This turn your ranged attacks do not suffer disadvantage when made in melee and you gain the rogue's Skirmisher ability against targets of your ranged attacks.</li>\n<li><strong>Rapid Reload:</strong> You reload a crossbow in the same action you fire it.</li>\n<li><strong>Ricochet Shot:</strong> When making a ranged attack you may ignore the target having total cover. Or after hitting with a ranged attack, you may repeat the attack with disadvantage against another target within Melee range of the original. At the GM's discretion some targets behind total cover may require a successful Perception (Detection) check before they can be attacked.</li>\n<li><strong>Serrated Arrow:</strong> After hitting with a ranged attack the target must make a Luck (Con) save or start bleeding, taking 1d4 damage at the start of each of its turns unless it is staunched in some way. If you inflict trauma, roll on the Blade Trauma table.</li>\n<li><strong>Shot at a Rescue:</strong> You may make a Rescue attempt as long as it can be achieved with a ranged weapon such as pinning an ally's cloak to the wall right before they fall in a pit. You test Perception (Detection) instead of Initiative and this ability may only be used once per adventure.</li>\n<li><strong>Shot in the Dark:</strong> This turn any ranged attacks you make are Perception (Detection) checks instead, ignoring all vision and range based penalties, with success dealing normal damage.</li>\n<li><strong>Shot on the Run:</strong> This turn, making ranged attacks does not end your Move.</li>\n<li><strong>Snapshot:</strong> During a surprise round if you have a ranged weapon handy you may make a Perception (Detection) check to gain a free attack with it before anything else is resolved.</li>\n<li><strong>Take the High Ground:</strong> This turn you may climb at your normal Movement speed as long as you have one hand free. Given sufficient handholds and places to jump and kick off, no checks are needed during this climb.</li>\n<li><strong>Trick Shot:</strong> Once per target per combat, instead of rolling damage for a ranged attack you may choose effect 1 from the Blade Trauma table (str 13) or effect 1, 2, 3, 4, 5, 7 or 8 from the Missile Trauma table.</li>\n</ol>",
+      "mechanics": {
+        "category": "class",
+        "uses": {
+          "current": "1",
+          "max": "1"
+        },
+        "classAbility": {
+          "type": "general",
+          "table": [
+            {
+              "key": "one",
+              "value": "<strong>Blunt Arrow:</strong> After hitting with a ranged attack the target must make a Luck (Con) save or be Dazed. If you reduce the target to 0 HP you may knock them unconscious and if you inflict trauma, roll on the Blunt Trauma table."
+            },
+            {
+              "key": "two",
+              "value": "<strong>Bomb Arrow:</strong> After hitting with a ranged attack the target must make a Luck (Str) save or be knocked prone or pushed a short distance. If you inflict trauma, roll on the Blast Trauma table."
+            },
+            {
+              "key": "three",
+              "value": "<strong>Point Blank Shooting:</strong> This turn your ranged attacks do not suffer disadvantage when made in melee and you gain the rogue's Skirmisher ability against targets of your ranged attacks."
+            },
+            {
+              "key": "four",
+              "value": "<strong>Rapid Reload:</strong> You reload a crossbow in the same action you fire it."
+            },
+            {
+              "key": "five",
+              "value": "<strong>Ricochet Shot:</strong> When making a ranged attack you may ignore the target having total cover. Or after hitting with a ranged attack, you may repeat the attack with disadvantage against another target within Melee range of the original. At the GM's discretion some targets behind total cover may require a successful Perception (Detection) check before they can be attacked."
+            },
+            {
+              "key": "six",
+              "value": "<strong>Serrated Arrow:</strong> After hitting with a ranged attack the target must make a Luck (Con) save or start bleeding, taking 1d4 damage at the start of each of its turns unless it is staunched in some way. If you inflict trauma, roll on the Blade Trauma table."
+            },
+            {
+              "key": "seven",
+              "value": "<strong>Shot at a Rescue:</strong> You may make a Rescue attempt as long as it can be achieved with a ranged weapon such as pinning an ally's cloak to the wall right before they fall in a pit. You test Perception (Detection) instead of Initiative and this ability may only be used once per adventure."
+            },
+            {
+              "key": "eight",
+              "value": "<strong>Shot in the Dark:</strong> This turn any ranged attacks you make are Perception (Detection) checks instead, ignoring all vision and range based penalties, with success dealing normal damage."
+            },
+            {
+              "key": "nine",
+              "value": "<strong>Shot on the Run:</strong> This turn, making ranged attacks does not end your Move."
+            },
+            {
+              "key": "ten",
+              "value": "<strong>Snapshot:</strong> During a surprise round if you have a ranged weapon handy you may make a Perception (Detection) check to gain a free attack with it before anything else is resolved."
+            },
+            {
+              "key": "eleven",
+              "value": "<strong>Take the High Ground:</strong> This turn you may climb at your normal Movement speed as long as you have one hand free. Given sufficient handholds and places to jump and kick off, no checks are needed during this climb."
+            },
+            {
+              "key": "twelve",
+              "value": "<strong>Trick Shot:</strong> Once per target per combat, instead of rolling damage for a ranged attack you may choose effect 1 from the Blade Trauma table (str 13) or effect 1, 2, 3, 4, 5, 7 or 8 from the Missile Trauma table."
+            },
+            {
+              "key": "tableSize",
+              "value": "12"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Skirmisher",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Enemy suffers disadvantage on Free attacks against you",
+      "descriptionHtml": "<p>By 2nd level you are a natural skirmisher, attacking swiftly then disengaging before your target can properly retaliate. When you are subject to a free attack due to your movement, the enemy suffers disadvantage on the attack roll.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Slippery Mind",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Will check to evade magical forces that control /detect thoughts",
+      "descriptionHtml": "<p>When subject to magical forces that control or detect your thoughts, or locate you, you may choose to make a Will check to fool, mislead, or negate the effect. This ability lasts 2d6 minutes.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "attr",
+          "attribute": "will",
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Smoke Bomb",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Far range, fills Close area, those within Blind, 1d4 rounds",
+      "descriptionHtml": "<p>You throw a smoke bomb up to Far range. Thick smoke fills a Close area, blocking line of sight and rendering those within Blind. The smoke disperses in 1d4 rounds.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "dur",
+          "percentile": 33,
+          "dieNumber": "1",
+          "dieSize": "d4"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Spirit Strike",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Expanded Crit Range, Suppress Regeneration",
+      "descriptionHtml": "<p>For 2d6 rounds, your melee attacks count as magical, cause critical hits on natural 19-20 attack rolls, and suppress target regeneration.</p>",
+      "mechanics": {
+        "category": "class",
+        "roll": {
+          "type": "dur",
+          "percentile": 33,
+          "dieNumber": "2",
+          "dieSize": "d6"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Spirit Warrior",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "1d10 unarmed dmg, expand crit, reroll for insight, end magical effect",
+      "descriptionHtml": "<p>At 5th level, you unlock glimmers of spiritual enlightenment, invigorating your physical and mental being. Gain the following benefits:</p>\n<ul>\n<li>You unarmed attacks cause 1d10 damage instead of 1d6.</li>\n<li>Open Hand Versatility applies on a Natural 19-20.</li>\n<li>Once per adventure, after a period of meditation and contemplation, you may spend a Reroll to gain a useful insight. Bearing in mind your party goals, the GM will remind you of an important piece of information, spotlight an overlooked clue or connection, or provide some other kind of inspiration.</li>\n<li>Once per adventure, during your turn you may spend a Reroll to make a Will check. If successful, one magical effect you are subject to ends. If others are subject to the same effect, it does not end for them.</li>\n</ul>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Strength of One",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Gain Str 19 for one action.",
+      "descriptionHtml": "<p>Gain Str 19 for one action.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Supplies",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Add 1d4 mundane items to equipment list",
+      "descriptionHtml": "<p>By 2nd level, you naturally anticipate and prepare for dangers and obstacles that lie ahead. At any time during an adventure, you may automatically add 1d4 mundane items to your equipment list (the items must have a common theme). For example, you might gain additional coils of rope, a grappling hook and climbing boots, a cache of fire pots, and so on. Particularly expensive or bulky items may not be permitted at the GM&rsquo;s discretion. After using this ability, you may not use it again until you resupply at a village, town or city (the GM might impose additional limits).</p>",
+      "mechanics": {
+        "category": "class",
+        "uses": {
+          "current": "1",
+          "max": "1"
+        },
+        "roll": {
+          "type": "tar",
+          "percentile": 33,
+          "dieNumber": "1",
+          "dieSize": "d4"
+        },
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Tricks & Techniques",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Tricks and surprises to use against opponents",
+      "descriptionHtml": "<p>You come prepared with surprises up your sleeve, ready to exploit any advantage or opportunity. At 1st level, you know a number of tricks equal to your Dex mod; roll 1d12 on the below list to determine which. With each new level, learn one additional trick of your choosing.</p>\n<p>You begin an adventure with one use of this ability per level. Unless noted otherwise, you may expend a use of this ability as part of your normal action, choosing one trick to apply. If a trick requires a Dex check, you may use a Reroll. You may regain expended uses by taking Short or Long Rests.</p>",
+      "mechanics": {
+        "category": "class",
+        "uses": {
+          "current": "1",
+          "max": "1"
+        },
+        "roll": {
+          "percentile": 33,
+          "dieNumber": 1
+        },
+        "classAbility": {
+          "type": "table",
+          "table": [
+            {
+              "key": "one",
+              "value": "Cat's Grace"
+            },
+            {
+              "key": "two",
+              "value": "Choking Dust"
+            },
+            {
+              "key": "three",
+              "value": "Blind Sense"
+            },
+            {
+              "key": "four",
+              "value": "Flash Powder"
+            },
+            {
+              "key": "five",
+              "value": "Glue Pot"
+            },
+            {
+              "key": "six",
+              "value": "Hidden Blade"
+            },
+            {
+              "key": "seven",
+              "value": "Quick Reflexes"
+            },
+            {
+              "key": "eight",
+              "value": "Rapid Dose"
+            },
+            {
+              "key": "nine",
+              "value": "Slippery Mind"
+            },
+            {
+              "key": "ten",
+              "value": "Smoke Bomb"
+            },
+            {
+              "key": "eleven",
+              "value": "Unseen Whip"
+            },
+            {
+              "key": "twelve",
+              "value": "Recon Leader"
+            },
+            {
+              "key": "tableSize",
+              "value": "d12"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Two Hander",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "ADV on dmg when using melee weapon 2-handed",
+      "descriptionHtml": "<p>When using a melee weapon two handed, gain adv when rolling damage.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Unarmed",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "1d6 dmg unarmed, Nat19 grab/disarm",
+      "descriptionHtml": "<p>Your unarmed attacks cause 1d6 damage instead of 1d2. On a Nat 19, you may grab or disarm your foe.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Unseen Whip",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Melee range, Luck(Dex) save or target tripped/pulled/disarmed",
+      "descriptionHtml": "<p>On a failed Luck (Dex) save, one target within Melee range is tripped, pulled a short distance (GM determines how far), or disarmed.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Warlord",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "Reroll Fumbles at no Reroll cost",
+      "descriptionHtml": "<p>At 7th level, when an ally within Close range that can see or hear you fumbles their attack roll, they automatically reroll their attack (no Reroll cost). You also reroll your own fumbled attacks, provided you can see or hear an ally within Close range.</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Wild Born",
+      "type": "Ability",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/ability.svg",
+      "summary": "+3 AC for Light Armour, ADV on Wilderness Lore",
+      "descriptionHtml": "<p>At 1st level, your athleticism and survival skills grant you adv on Wilderness Lore checks, light armour grants +3 AC* instead of +1 AC, and you ignore skill penalties for medium armour (p.61).</p>",
+      "mechanics": {
+        "category": "class",
+        "classAbility": {
+          "type": "general"
+        }
+      }
+    },
+    {
+      "name": "Actor",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "cha",
+        "skill": "Deception",
+        "startingItem": "Lucky Coin (1 use, reroll)"
+      }
+    },
+    {
+      "name": "Alchemist's Assistant",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "int",
+        "skill": "Arcane Lore",
+        "startingItem": "Fire Pot"
+      }
+    },
+    {
+      "name": "Apothecary's Assistant",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "int",
+        "skill": "Apothecary",
+        "startingItem": "Healer's Kit"
+      }
+    },
+    {
+      "name": "Barkeep",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "cha",
+        "skill": "Persuasion",
+        "startingItem": "Small Barrel of Spirits"
+      }
+    },
+    {
+      "name": "Beggar",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "will",
+        "skill": "Gather Info",
+        "startingItem": "Bitey Dog"
+      }
+    },
+    {
+      "name": "Bone Grubber",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "perc",
+        "skill": "Detection",
+        "startingItem": "Sack of Broken Glass"
+      }
+    },
+    {
+      "name": "Brigand",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "str",
+        "skill": "Stealth",
+        "startingItem": "Wine Flask"
+      }
+    },
+    {
+      "name": "Busker",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "cha",
+        "skill": "Persuasion",
+        "startingItem": "Pipe, Drum, Horn, or Lute"
+      }
+    },
+    {
+      "name": "Cook",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "cha",
+        "skill": "General Lore",
+        "startingItem": "Spice Jar"
+      }
+    },
+    {
+      "name": "Ditch Digger",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "str",
+        "skill": "Athletics",
+        "startingItem": "Shovel"
+      }
+    },
+    {
+      "name": "Fur Trapper",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "int",
+        "skill": "Wilderness Lore",
+        "startingItem": "Bear Trap"
+      }
+    },
+    {
+      "name": "Galley Slave",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "will",
+        "skill": "Watercraft",
+        "startingItem": "Fishing Rod"
+      }
+    },
+    {
+      "name": "Gong Farmer",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "con",
+        "skill": "Gather Info",
+        "startingItem": "Antitoxin"
+      }
+    },
+    {
+      "name": "Graverobber",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "str",
+        "skill": "Athletics",
+        "startingItem": "String of Garlic"
+      }
+    },
+    {
+      "name": "Hangman",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "will",
+        "skill": "Leadership",
+        "startingItem": "Rope 30ft"
+      }
+    },
+    {
+      "name": "Herbalist's Assistant",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "int",
+        "skill": "Wilderness Lore",
+        "startingItem": "Poppy Milk"
+      }
+    },
+    {
+      "name": "Hunter",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "perc",
+        "skill": "Wilderness Lore",
+        "startingItem": "Spear"
+      }
+    },
+    {
+      "name": "Kennelman",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "dex",
+        "skill": "Animal Lore",
+        "startingItem": "War Dog"
+      }
+    },
+    {
+      "name": "Mercenary",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "str",
+        "skill": "Leadership",
+        "startingItem": "Deck of Cards"
+      }
+    },
+    {
+      "name": "Messenger",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "con",
+        "skill": "General Lore",
+        "startingItem": "Horse"
+      }
+    },
+    {
+      "name": "Miner",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "str",
+        "skill": "Detection",
+        "startingItem": "Pickaxe"
+      }
+    },
+    {
+      "name": "Organlegger",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "con",
+        "skill": "Apothecary",
+        "startingItem": "Bandages"
+      }
+    },
+    {
+      "name": "Pickpocket",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "dex",
+        "skill": "Sleight of Hand",
+        "startingItem": "Secret Pocket"
+      }
+    },
+    {
+      "name": "Pilgrim",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "cha",
+        "skill": "Divine Lore",
+        "startingItem": "Scriptures"
+      }
+    },
+    {
+      "name": "Prisoner",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "con",
+        "skill": "Sleight of Hand",
+        "startingItem": "Manacles"
+      }
+    },
+    {
+      "name": "Rat Catcher",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "dex",
+        "skill": "Stealth",
+        "startingItem": "Cheese Wedge"
+      }
+    },
+    {
+      "name": "Sailor",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "con",
+        "skill": "Watercraft",
+        "startingItem": "Ancient Map"
+      }
+    },
+    {
+      "name": "Scribe",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "int",
+        "skill": "General Lore",
+        "startingItem": "Parchment & Ink"
+      }
+    },
+    {
+      "name": "Street Acrobat",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "dex",
+        "skill": "Acrobatics",
+        "startingItem": "10ft Pole"
+      }
+    },
+    {
+      "name": "Street Crier",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "will",
+        "skill": "General Lore",
+        "startingItem": "Hand Bell"
+      }
+    },
+    {
+      "name": "Street Preacher",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "cha",
+        "skill": "Divine Lore",
+        "startingItem": "Holy Symbol"
+      }
+    },
+    {
+      "name": "Swineherd",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "perc",
+        "skill": "Animal Lore",
+        "startingItem": "Burly Pig (as Dog)"
+      }
+    },
+    {
+      "name": "Thief",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "dex",
+        "skill": "Traps & Locks",
+        "startingItem": "Lockpicks"
+      }
+    },
+    {
+      "name": "Tinkerer",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "int",
+        "skill": "Traps & Locks",
+        "startingItem": "Pouch of Marbles"
+      }
+    },
+    {
+      "name": "Wagoneer",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "perc",
+        "skill": "Animal Lore",
+        "startingItem": "Whip"
+      }
+    },
+    {
+      "name": "Yellow Lotus Addict",
+      "type": "Background",
+      "category": "Backgrounds",
+      "image": "systems/talesofargosa/images/ui/items/background.svg",
+      "mechanics": {
+        "statBoost": "will",
+        "skill": "Deception",
+        "startingItem": "Yellow Lotus Powder"
+      }
+    },
+    {
+      "name": "Barbarian",
+      "type": "Class",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/class.svg",
+      "summary": "A savage warrior with primal instincts",
+      "descriptionHtml": "<p>You are a barbarian, a savage warrior from the tundra, mountains, deep forests, or sandy wastes. You might be a Viking raider, a Conan like behemoth, or an Amazonian warrior woman.</p>\n<p>Unlike soft city dwellers, your long exposure to harsh elements has equipped you with primal ferocity, acute instincts, and formidable endurance. You are well versed in the use of weapons, but prefer armours that do not hinder your natural athleticism. Most barbarians are superstitious, illiterate, and have an abiding distrust of magic.</p>",
+      "mechanics": {
+        "keyAttribute": "con",
+        "hpMultiplier": "x2",
+        "weaponProficiencies": "All except crossbows",
+        "armourProficiencies": "Light, Medium Armour, and Shields",
+        "startingGear": "Great Axe (1d12), Hide (+3 AC *Wild Born*)",
+        "skills": {
+          "starting": [
+            "Athletics",
+            "Wilderness Lore"
+          ],
+          "tableDie": "d10",
+          "options": [
+            {
+              "roll": 1,
+              "skill": "Acrobatics"
+            },
+            {
+              "roll": 2,
+              "skill": "Animal Lore"
+            },
+            {
+              "roll": 3,
+              "skill": "Deception"
+            },
+            {
+              "roll": 4,
+              "skill": "Detection"
+            },
+            {
+              "roll": 5,
+              "skill": "Divine Lore"
+            },
+            {
+              "roll": 6,
+              "skill": "Gather Info"
+            },
+            {
+              "roll": 7,
+              "skill": "Leadership"
+            },
+            {
+              "roll": 8,
+              "skill": "Persuasion"
+            },
+            {
+              "roll": 9,
+              "skill": "Watercraft"
+            },
+            {
+              "roll": 10,
+              "skill": "Stealth"
+            }
+          ]
+        },
+        "progression": [
+          {
+            "level": 1,
+            "attackBonus": "1",
+            "abilities": "Ferocious Rage, Wild Born"
+          },
+          {
+            "level": 2,
+            "attackBonus": "2",
+            "abilities": "New Skill, Sixth Sense"
+          },
+          {
+            "level": 3,
+            "attackBonus": "3",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 4,
+            "attackBonus": "4",
+            "abilities": "+1 AC"
+          },
+          {
+            "level": 5,
+            "attackBonus": "5",
+            "abilities": "New Skill, Second Attack"
+          },
+          {
+            "level": 6,
+            "attackBonus": "6",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 7,
+            "attackBonus": "7",
+            "abilities": "Killer Instinct"
+          },
+          {
+            "level": 8,
+            "attackBonus": "8",
+            "abilities": "+1 AC, New Skill"
+          },
+          {
+            "level": 9,
+            "attackBonus": "9",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": "Beyond",
+            "attackBonus": "0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Bard",
+      "type": "Class",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/class.svg",
+      "summary": "Charismatic wanderer, artist, and diplomat",
+      "descriptionHtml": "<p>You are a bard, a charismatic wanderer; part artist, diplomat, and warrior, as skilled with blades as you are with ballads. You might be a fearsome skald, a celebrated performer, or a master of whispers. In your travels you draw knowledge from all corners, forging alliances and extracting secrets from those who should know better.</p>\n<p>A bard&rsquo;s influence fortifies the company, strengthening bonds and the common will to prevail. With the right words and deeds, the bard elevates the party beyond the sum of its parts.</p>",
+      "mechanics": {
+        "keyAttribute": "cha",
+        "hpMultiplier": "x2",
+        "weaponProficiencies": "All",
+        "armourProficiencies": "Light, Medium Armour, and Shields",
+        "startingGear": "Spear (1d6+1), Chain shirt (+3 AC), Instrument (if desired)",
+        "skills": {
+          "starting": [
+            "Persuasion",
+            "Deception",
+            "General Lore"
+          ],
+          "tableDie": "d10",
+          "options": [
+            {
+              "roll": 1,
+              "skill": "Apothecary"
+            },
+            {
+              "roll": 2,
+              "skill": "Arcane Lore"
+            },
+            {
+              "roll": 3,
+              "skill": "Athletics"
+            },
+            {
+              "roll": 4,
+              "skill": "Detection"
+            },
+            {
+              "roll": 5,
+              "skill": "Divine Lore"
+            },
+            {
+              "roll": 6,
+              "skill": "Gather Info"
+            },
+            {
+              "roll": 7,
+              "skill": "Leadership"
+            },
+            {
+              "roll": 8,
+              "skill": "Stealth"
+            },
+            {
+              "roll": 9,
+              "skill": "Watercraft"
+            },
+            {
+              "roll": 10,
+              "skill": "Traps & Locks"
+            }
+          ]
+        },
+        "progression": [
+          {
+            "level": 1,
+            "attackBonus": "0",
+            "abilities": "Silver Tongued, Inspire Greatness"
+          },
+          {
+            "level": 2,
+            "attackBonus": "1",
+            "abilities": "New Skill, Bardic Knowledge"
+          },
+          {
+            "level": 3,
+            "attackBonus": "2",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 4,
+            "attackBonus": "2",
+            "abilities": "+1 AC"
+          },
+          {
+            "level": 5,
+            "attackBonus": "3",
+            "abilities": "New Skill, Rallying Shout"
+          },
+          {
+            "level": 6,
+            "attackBonus": "4",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 7,
+            "attackBonus": "5",
+            "abilities": "Warlord"
+          },
+          {
+            "level": 8,
+            "attackBonus": "5",
+            "abilities": "+1 AC, New Skill"
+          },
+          {
+            "level": 9,
+            "attackBonus": "6",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": "Beyond",
+            "attackBonus": "0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Fighter",
+      "type": "Class",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/class.svg",
+      "summary": "Warrior trained in weapons and fighting styles",
+      "descriptionHtml": "<p>You are a fighter, a veteran warrior expertly trained in weapons and armour. Perhaps you are a mail clad knight, an agile spearman, or a sharp eyed bowman. Fighters are versatile masters of all weapons, switching between armaments and combat styles to best meet the foe at hand.</p>\n<p>The fighter is the most heavily armed and armoured adventurer in the game. You are comfortable in the thick of battle, relying on brawn, steel, and superior skill to win the day.</p>",
+      "mechanics": {
+        "keyAttribute": "str",
+        "hpMultiplier": "x3",
+        "weaponProficiencies": "All",
+        "armourProficiencies": "All",
+        "startingGear": "Longsword (1d8) or Spear (1d6+1), Chain shirt (+3 AC), Shield (+1 AC).",
+        "skills": {
+          "starting": [
+            "Leadership",
+            "Athletics"
+          ],
+          "tableDie": "d12",
+          "options": [
+            {
+              "roll": 1,
+              "skill": "Acrobatics"
+            },
+            {
+              "roll": 2,
+              "skill": "Animal Lore"
+            },
+            {
+              "roll": 3,
+              "skill": "Apothecary"
+            },
+            {
+              "roll": 4,
+              "skill": "Deception"
+            },
+            {
+              "roll": 5,
+              "skill": "Detection"
+            },
+            {
+              "roll": 6,
+              "skill": "Gather Info"
+            },
+            {
+              "roll": 7,
+              "skill": "General Lore"
+            },
+            {
+              "roll": 8,
+              "skill": "Persuasion"
+            },
+            {
+              "roll": 9,
+              "skill": "Watercraft"
+            },
+            {
+              "roll": 10,
+              "skill": "Stealth"
+            },
+            {
+              "roll": 11,
+              "skill": "Traps & Locks"
+            },
+            {
+              "roll": 12,
+              "skill": "Wilderness Lore"
+            }
+          ]
+        },
+        "progression": [
+          {
+            "level": 1,
+            "attackBonus": "1",
+            "abilities": "Adaptable, Deadly Strikes"
+          },
+          {
+            "level": 2,
+            "attackBonus": "2",
+            "abilities": "New Skill, Supplies"
+          },
+          {
+            "level": 3,
+            "attackBonus": "3",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 4,
+            "attackBonus": "4",
+            "abilities": "+1 AC"
+          },
+          {
+            "level": 5,
+            "attackBonus": "5",
+            "abilities": "New Skill, Second Attack"
+          },
+          {
+            "level": 6,
+            "attackBonus": "6",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 7,
+            "attackBonus": "7",
+            "abilities": "Master of Arms"
+          },
+          {
+            "level": 8,
+            "attackBonus": "8",
+            "abilities": "+1 AC, New Skill"
+          },
+          {
+            "level": 9,
+            "attackBonus": "9",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": "Beyond",
+            "attackBonus": "0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Monk",
+      "type": "Class",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/class.svg",
+      "summary": "Martial artist, unarmed and dangerous",
+      "descriptionHtml": "<p>You are a monk, a pilgrim adventurer and martial artist, travelling the world in search of enlightenment. You might be a peacekeeping vagabond, a reclusive mystic, or a vigilante drifter. Raised by your order, you lack family attachment and eschew material things, focusing instead on the perfect alignment of mind, body, and spirit.</p>\n<p>Unarmed and unarmoured, only a fool mistakes you for easy prey. A lifetime of training has forged you into a fearsome weapon; strong as the mountain and supple as the wind, you perform deeds others hold impossible. Your discipline and spirit burn brighter than the sun.</p>",
+      "mechanics": {
+        "keyAttribute": "will",
+        "hpMultiplier": "x2",
+        "weaponProficiencies": "Spear, Shortsword, Dagger, Staff, Shortbow, Sling",
+        "armourProficiencies": "Light Armour",
+        "startingGear": "Staff (1d6), Leather Armour (+1 AC), Healer's Kit",
+        "skills": {
+          "starting": [
+            "Acrobatics",
+            "Apothecary",
+            "Athletics"
+          ],
+          "tableDie": "d10",
+          "options": [
+            {
+              "roll": 1,
+              "skill": "Arcane Lore"
+            },
+            {
+              "roll": 2,
+              "skill": "Deception"
+            },
+            {
+              "roll": 3,
+              "skill": "Detection"
+            },
+            {
+              "roll": 4,
+              "skill": "Divine Lore"
+            },
+            {
+              "roll": 5,
+              "skill": "General Lore"
+            },
+            {
+              "roll": 6,
+              "skill": "Persuasion"
+            },
+            {
+              "roll": 7,
+              "skill": "Watercraft"
+            },
+            {
+              "roll": 8,
+              "skill": "Stealth"
+            },
+            {
+              "roll": 9,
+              "skill": "Traps & Locks"
+            },
+            {
+              "roll": 10,
+              "skill": "Wilderness Lore"
+            }
+          ]
+        },
+        "progression": [
+          {
+            "level": 1,
+            "attackBonus": "0",
+            "abilities": "Martial Arts, Monk Techniques"
+          },
+          {
+            "level": 2,
+            "attackBonus": "1",
+            "abilities": "New Skill, Open Hand Versatility"
+          },
+          {
+            "level": 3,
+            "attackBonus": "2",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 4,
+            "attackBonus": "2",
+            "abilities": "+1 AC"
+          },
+          {
+            "level": 5,
+            "attackBonus": "3",
+            "abilities": "New Skill, Spirit Warrior"
+          },
+          {
+            "level": 6,
+            "attackBonus": "4",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 7,
+            "attackBonus": "5",
+            "abilities": "Counterattack"
+          },
+          {
+            "level": 8,
+            "attackBonus": "5",
+            "abilities": "+1 AC, New Skill"
+          },
+          {
+            "level": 9,
+            "attackBonus": "6",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": "Beyond",
+            "attackBonus": "0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Rogue",
+      "type": "Class",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/class.svg",
+      "summary": "Speedy and silent assassin",
+      "descriptionHtml": "<p>You are a rogue, a lurker in the shadows, gifted in acrobatics, stealth, and sleight of hand. You might be a brave scout, a sly thief, a deadly assassin, or a haughty pirate. In any guise, agility and cunning are the rogue&rsquo;s hallmarks.</p>\n<p>Lightly armoured, you rely on speed and guile to keep you from harm, employing a range of tricks and deceits to maintain the upper hand. When you strike, your sword comes without warning, dropping opponents before they realise the true threat on the battlefield.</p>",
+      "mechanics": {
+        "keyAttribute": "dex",
+        "hpMultiplier": "x2",
+        "weaponProficiencies": "1H Weapons, Light Crossbow, Shortbow, Sling",
+        "armourProficiencies": "Light Armour",
+        "startingGear": "Shortsword (1d6), Dagger (1d4), Leather Armour (+1AC), Thieves' Tools",
+        "skills": {
+          "starting": [
+            "Stealth",
+            "Sleight of Hand",
+            "Traps & Locks"
+          ],
+          "tableDie": "d10",
+          "options": [
+            {
+              "roll": 1,
+              "skill": "Acrobatics"
+            },
+            {
+              "roll": 2,
+              "skill": "Apothecary"
+            },
+            {
+              "roll": 3,
+              "skill": "Arcane Lore"
+            },
+            {
+              "roll": 4,
+              "skill": "Deception"
+            },
+            {
+              "roll": 5,
+              "skill": "Detection"
+            },
+            {
+              "roll": 6,
+              "skill": "Divine Lore"
+            },
+            {
+              "roll": 7,
+              "skill": "Gather Info"
+            },
+            {
+              "roll": 8,
+              "skill": "General Lore"
+            },
+            {
+              "roll": 9,
+              "skill": "Persuasion"
+            },
+            {
+              "roll": 10,
+              "skill": "Watercraft"
+            }
+          ]
+        },
+        "progression": [
+          {
+            "level": 1,
+            "attackBonus": "0",
+            "abilities": "Backstab, Finisher, Tricks"
+          },
+          {
+            "level": 2,
+            "attackBonus": "1",
+            "abilities": "New Skill, Skirmisher"
+          },
+          {
+            "level": 3,
+            "attackBonus": "2",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 4,
+            "attackBonus": "2",
+            "abilities": "+1 AC"
+          },
+          {
+            "level": 5,
+            "attackBonus": "3",
+            "abilities": "New Skill, Backstab Boost"
+          },
+          {
+            "level": 6,
+            "attackBonus": "4",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 7,
+            "attackBonus": "5",
+            "abilities": "Lethal Precision"
+          },
+          {
+            "level": 8,
+            "attackBonus": "5",
+            "abilities": "+1 AC, New Skill"
+          },
+          {
+            "level": 9,
+            "attackBonus": "6",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": "Beyond",
+            "attackBonus": "0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sharpshooter",
+      "type": "Class",
+      "category": "Classes & Abilities",
+      "image": "systems/talesofargosa/images/ui/items/class.svg",
+      "summary": "Ranged atk ignores cover; uses archery techniques",
+      "descriptionHtml": "<p>You are a sharpshooter, unmatched in skill with ranged weapons. There is no target you can't hit and your fellow adventurers value that accuracy. You may be a former soldier, a hunter or even a noble with a passion for the now.</p>\n<p><strong>Skills:</strong> Detection, Stealth, plus roll 1d12 three times on the class skill table.</p>\n<p><strong>Beyond 9th Level:</strong> If you survive this long you retire to head a school for passing on your peerless arts in marksmanship.</p>",
+      "mechanics": {
+        "keyAttribute": "none",
+        "hpMultiplier": "x2",
+        "weaponProficiencies": "All ranged weapons and one-handed melee weapons",
+        "armourProficiencies": "Light and Medium armour",
+        "startingGear": "Longbow (1d8) or Heavy Crossbow (2d8), Quiver, Light Axe (1d6), Leather Armour (+1 AC)",
+        "skills": {
+          "starting": [
+            "Detection",
+            "Stealth"
+          ],
+          "tableDie": "d12",
+          "options": [
+            {
+              "roll": 1,
+              "skill": "Acrobatics"
+            },
+            {
+              "roll": 2,
+              "skill": "Animal Lore"
+            },
+            {
+              "roll": 3,
+              "skill": "Apothecary"
+            },
+            {
+              "roll": 4,
+              "skill": "Athletics"
+            },
+            {
+              "roll": 5,
+              "skill": "Deception"
+            },
+            {
+              "roll": 6,
+              "skill": "Gather Info"
+            },
+            {
+              "roll": 7,
+              "skill": "General Lore"
+            },
+            {
+              "roll": 8,
+              "skill": "Persuasion"
+            },
+            {
+              "roll": 9,
+              "skill": "Traps & Locks"
+            },
+            {
+              "roll": 10,
+              "skill": "Wilderness Lore"
+            },
+            {
+              "roll": 11,
+              "skill": "Watercraft"
+            },
+            {
+              "roll": 12,
+              "skill": "Leadership"
+            }
+          ]
+        },
+        "progression": [
+          {
+            "level": 1,
+            "attackBonus": "1",
+            "abilities": "Skirmish Archery, Deadly Aim"
+          },
+          {
+            "level": 2,
+            "attackBonus": "2",
+            "abilities": "Battlefield Scavenger, New Skill"
+          },
+          {
+            "level": 3,
+            "attackBonus": "3",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 4,
+            "attackBonus": "4",
+            "abilities": "+1 AC"
+          },
+          {
+            "level": 5,
+            "attackBonus": "5",
+            "abilities": "New Skill, Second Attack"
+          },
+          {
+            "level": 6,
+            "attackBonus": "6",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": 7,
+            "attackBonus": "7",
+            "abilities": "Ranged Mastery"
+          },
+          {
+            "level": 8,
+            "attackBonus": "8",
+            "abilities": "+1 AC, New Skill"
+          },
+          {
+            "level": 9,
+            "attackBonus": "9",
+            "abilities": "Unique Feature"
+          },
+          {
+            "level": "Beyond",
+            "attackBonus": "0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Human",
+      "type": "Race",
+      "category": "Races",
+      "image": "systems/talesofargosa/images/ui/items/race.svg",
+      "summary": "Human Race. Default race for PCs",
+      "descriptionHtml": "<p>Humans have a flair for adaptability and problem solving. They exhibit wide variability and often enjoy the largest population centres in lower magic settings. If the GM allows PC races other than humans, humans gain the following benefits:</p>",
+      "mechanics": {
+        "benefits": [
+          "Increase max Rerolls by 1",
+          "Apply +1 to an attribute of choice (max 16, no Luck/Init)"
+        ]
+      }
+    },
+    {
+      "name": "Acrobatics",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Tests of agility, climbing, jumping, escape, etc.",
+      "descriptionHtml": "<p>Climbing, jumping, tumbling, parkour, escapology, and tests of agility. May assist with standing up from Prone</p>",
+      "mechanics": {
+        "attribute": "dex",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Animal Lore (Cha)",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Animal behaviour, handling, etc.",
+      "descriptionHtml": "<p>Animal behaviour, animal handling, hunting, mounted combat, driving carts &amp; carriages, animal training, veterinary lore, bestial monster lore.</p>",
+      "mechanics": {
+        "attribute": "cha",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Animal Lore (Int)",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Animal behaviour, handling, etc.",
+      "descriptionHtml": "<p>Animal behaviour, animal handling, hunting, mounted combat, driving carts &amp; carriages, animal training, veterinary lore, bestial monster lore.</p>",
+      "mechanics": {
+        "attribute": "int",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Apothecary",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "First aid, poisons, biology, etc.",
+      "descriptionHtml": "<p>First aid (including using Healer&rsquo;s Kits), injury recovery, poisons, biology, treating disease.</p>",
+      "mechanics": {
+        "attribute": "int",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Arcane Lore",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Sensing magic, recalling magical lore, etc.",
+      "descriptionHtml": "<p>Sensing magic, recalling magical lore, fantastic monster lore, alchemy. Might assist in disarming some kinds of magical traps (GM&rsquo;s call).</p>",
+      "mechanics": {
+        "attribute": "int",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Athletics (Con)",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Tests of physical power",
+      "descriptionHtml": "<p>Running, climbing, swimming, jumping, tests of physical power including grappling, breaking down a door, knocking an enemy prone, pushing a foe backwards, and so on.</p>",
+      "mechanics": {
+        "attribute": "con",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Athletics (Str)",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Tests of physical power",
+      "descriptionHtml": "<p>Running, climbing, swimming, jumping, tests of physical power including grappling, breaking down a door, knocking an enemy prone, pushing a foe backwards, and so on.</p>",
+      "mechanics": {
+        "attribute": "str",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Deception",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Lies and forgery",
+      "descriptionHtml": "<p>Telling convincing lies, impersonations, making and using disguises and forgeries. NPCs might oppose using Int (GM&rsquo;s call).</p>",
+      "mechanics": {
+        "attribute": "cha",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Detection",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "State of alertness and purposeful searching",
+      "descriptionHtml": "<p>General state of alertness as well as purposeful searching. Detecting traps, ambushes, clues, secret doors, and so on.</p>",
+      "mechanics": {
+        "attribute": "perc",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Divine Lore",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Religious lore and rites",
+      "descriptionHtml": "<p>Specialized, obscure, or forbidden religious lore, rites, and creatures (holy and unholy).</p>",
+      "mechanics": {
+        "attribute": "int",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Gather Info (Cha)",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Rumour hunting and extended research",
+      "descriptionHtml": "<p>Rumour hunting, rumour mongering, canvassing for witnesses or a missing person or item, extended researching (eg: monster weaknesses or other specifics, the location of a lost ruin, etc).</p>",
+      "mechanics": {
+        "attribute": "cha",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Gather Info (Int)",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Rumour hunting and extended research",
+      "descriptionHtml": "<p>Rumour hunting, rumour mongering, canvassing for witnesses or a missing person or item, extended researching (eg: monster weaknesses or other specifics, the location of a lost ruin, etc).</p>",
+      "mechanics": {
+        "attribute": "int",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "General Lore",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Catch all for broad range of information",
+      "descriptionHtml": "<p>The general catch all lore skill, recalling a broad range of historical, scientific, and political information (but not Arcane, Animal, Divine or Wilderness Lore).</p>",
+      "mechanics": {
+        "attribute": "int",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Leadership",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Inspiration and intimidation",
+      "descriptionHtml": "<p>Inspiration, bolstering morale, intimidation, teaching, having orders obeyed. The Leadership skill assists in recruiting hirelings.</p>",
+      "mechanics": {
+        "attribute": "cha",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Persuasion",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Debate and negotiation",
+      "descriptionHtml": "<p>Debating, convincing, negotiation, diplomacy, etiquette</p>",
+      "mechanics": {
+        "attribute": "cha",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Sleight of Hand",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Picking pockets and hiding objects",
+      "descriptionHtml": "<p>Picking pockets, palming, hiding small objects on your person, or planting objects on others.</p>",
+      "mechanics": {
+        "attribute": "dex",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Stealth",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Hiding and moving silently",
+      "descriptionHtml": "<p>Hiding and moving silently. Often opposed by Perc (Detection).</p>",
+      "mechanics": {
+        "attribute": "dex",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Traps & Locks",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Picking locks and setting/disarming traps",
+      "descriptionHtml": "<p>Picking non-magical locks, setting and disarming non-magical traps. Noticing traps is covered by Perc (Detection). Some traps may require the character to be skilled in Traps &amp; Locks to attempt a disarm.</p>",
+      "mechanics": {
+        "attribute": "dex",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Watercraft (Con)",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Navigating, operating ships, fishing, swimming",
+      "descriptionHtml": "<p>Navigating and operating ships (including airships if applicable), rafts, canoes, etc. Also includes fishing and swimming.</p>",
+      "mechanics": {
+        "attribute": "con",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Watercraft (Int)",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Navigating, operating ships, fishing, swimming",
+      "descriptionHtml": "<p>Navigating and operating ships (including airships if applicable), rafts, canoes, etc. Also includes fishing and swimming.</p>",
+      "mechanics": {
+        "attribute": "int",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    },
+    {
+      "name": "Wilderness Lore",
+      "type": "Skill",
+      "category": "Skills",
+      "image": "systems/talesofargosa/images/ui/items/skills.svg",
+      "summary": "Survival, herbalism, etc.",
+      "descriptionHtml": "<p>Wilderness survival, herbalism, foraging, hunting game, tracking. Might include some relevant non-magical monster lore (GM&rsquo;s call).</p>",
+      "mechanics": {
+        "attribute": "int",
+        "skilled": true,
+        "skilledModifier": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+<div class="character-table" role="region" aria-label="Backgrounds" tabindex="0">
+  <table>
+    <thead><tr><th scope="col">Background</th><th scope="col">Attribute boost</th><th scope="col">Skill gained</th><th scope="col">Starting item / effect</th></tr></thead>
+    <tbody>
+      {{ range sort (where (partialCached "character/entries.html" "talesofargosa") "type" "Background") "name" }}
+        <tr id="background-{{ .name | anchorize }}">
+          <th scope="row">{{ .name }}</th>
+          <td>{{ partial "character/attribute.html" .mechanics.statBoost }}</td>
+          <td>{{ partial "character/skill-link.html" .mechanics.skill }}</td>
+          <td>{{ .mechanics.startingItem }}</td>
+        </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</div>

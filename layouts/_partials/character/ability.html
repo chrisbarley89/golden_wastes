@@ -1,0 +1,56 @@
+{{- $name := .name -}}
+{{- $lookup := $name -}}
+{{- if eq $name "Tricks" }}{{ $lookup = "Tricks & Techniques" }}{{ end -}}
+{{- if eq $name "Rear Guard" }}{{ $lookup = "Rearguard" }}{{ end -}}
+{{- $matches := where (where (partialCached "character/entries.html" "talesofargosa") "type" "Ability") "name" $lookup -}}
+{{ if eq $name "New Skill" }}
+  <p>Gain a new skill at this level. Refer to the <a href="#class-skills">class skill table</a> for the available skills.</p>
+{{ else if eq $name "Unique Feature" }}
+  <p>Gain a Unique Feature at this level. Its options and effects are not specified in the supplied rules; agree the feature with your GM.</p>
+{{ else if eq $name "+1 AC" }}
+  <p>Increase your Armour Class (AC) by 1.</p>
+{{ else if eq $name "Backstab Boost" }}
+  <p>Your additional <a href="#level-1-backstab">Backstab</a> damage increases from 1d8 to 3d6 at 5th level.</p>
+{{ else if $matches }}
+  {{ $variant := 0 }}
+  {{ if eq $name "Second Attack" }}
+    {{/* The export lacks class IDs. See docs/character-content.md for the interpretation. */}}
+    {{ $variant = index (dict "Barbarian" 0 "Fighter" 1 "Sharpshooter" 2) .class }}
+  {{ end }}
+  {{ $ability := index $matches $variant }}
+  {{ $table := $ability.mechanics.classAbility.table | default slice }}
+  {{ $options := where $table "key" "ne" "tableSize" }}
+  {{ $description := $ability.descriptionHtml }}
+  {{ if eq $name "Skirmish Archery" }}
+    {{/* These descriptions also occur in the structured table; show them once below. */}}
+    {{ $description = replaceRE `(?s)<ol>.*?</ol>` "" $description }}
+  {{ end }}
+  {{ $description | safeHTML }}
+  {{ if $options }}
+    {{ $parent := .anchor }}
+    <div class="character-table" role="region" aria-label="{{ $name }} options" tabindex="0">
+      <table>
+        <thead><tr><th scope="col">d12</th><th scope="col">Option</th></tr></thead>
+        <tbody>
+          {{ range $i, $option := $options }}
+            {{ $label := $option.value }}
+            {{ if eq $name "Skirmish Archery" }}{{ $label = replaceRE `(?s)<strong>(.*?):</strong>.*` "$1" $label }}{{ end }}
+            <tr><th scope="row">{{ add $i 1 }}</th><td><a href="#{{ $parent }}-{{ $label | anchorize }}">{{ $label }}</a></td></tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+    {{ range $options }}
+      {{ $label := .value }}
+      {{ if eq $name "Skirmish Archery" }}{{ $label = replaceRE `(?s)<strong>(.*?):</strong>.*` "$1" $label }}{{ end }}
+      <h5 id="{{ $parent }}-{{ $label | anchorize }}">{{ $label }}</h5>
+      {{ if eq $name "Skirmish Archery" }}
+        <p>{{ replaceRE `<strong>.*?</strong>\s*` "" .value | safeHTML }}</p>
+      {{ else }}
+        {{ partial "character/ability.html" (dict "name" .value "class" $.class "anchor" (printf "%s-%s" $parent ($label | anchorize))) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ errorf "Missing ability %q for %s" $name .class }}
+{{ end }}

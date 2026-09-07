@@ -1,0 +1,18 @@
+{{ $seen := slice }}
+<div class="character-table" role="region" aria-label="Skills" tabindex="0">
+  <table>
+    <thead><tr><th scope="col">Skill</th><th scope="col">Attribute</th><th scope="col">Skilled modifier</th><th scope="col">Uses and advantages</th></tr></thead>
+    <tbody>
+      {{ range sort (where (partialCached "character/entries.html" "talesofargosa") "type" "Skill") "name" }}
+        {{ $base := replaceRE ` \([^)]*\)$` "" .name }}
+        <tr id="skill-{{ .name | anchorize }}">
+          <th scope="row">{{ if and (ne $base .name) (not (in $seen $base)) }}<span id="skill-{{ $base | anchorize }}"></span>{{ end }}{{ .name }}</th>
+          <td>{{ partial "character/attribute.html" .mechanics.attribute }}</td>
+          <td>+{{ .mechanics.skilledModifier }}</td>
+          <td>{{ .descriptionHtml | safeHTML }}</td>
+        </tr>
+        {{ $seen = $seen | append $base }}
+      {{ end }}
+    </tbody>
+  </table>
+</div>

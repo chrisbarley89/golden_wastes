@@ -69,6 +69,8 @@ subtitle = "A Brutal TTRPG Adventure"
 [params.thumbnailFallbacks]
 campaign = ["/SVG/sun.svg"]
 class = ["/SVG/sword-in-stone.svg", "/SVG/character.svg"]
+race = ["/SVG/character.svg"]
+character = ["/SVG/character.svg", "/SVG/book-cover.svg"]
 item = ["/SVG/backpack.svg"]
 location = ["/SVG/village.svg"]
 lore = ["/SVG/book-cover.svg"]
@@ -124,6 +126,8 @@ pages = [
 monster = "/uploads/monster.jpg"
 lore = "/uploads/blue-abstract.jpg"
 class = "/uploads/white-abstract.jpg"
+race = "/uploads/white-abstract.jpg"
+character = "/uploads/blue-abstract.jpg"
 item = "/uploads/white-abstract.jpg"
 campaign = "/uploads/red-abstract.jpg"
 location = "/uploads/cave.jpg"
@@ -543,6 +547,24 @@ name = "Bestiary"
 pre = "bestial-fangs"
 pageRef = "/categories/monster"
 weight = 60
+
+  [menus.navigation.params]
+  group = "play"
+
+[[menus.navigation]]
+name = "Races"
+pre = "character"
+pageRef = "/categories/race"
+weight = 45
+
+  [menus.navigation.params]
+  group = "play"
+
+[[menus.navigation]]
+name = "Character"
+pre = "graduate"
+pageRef = "/categories/character"
+weight = 50
 
   [menus.navigation.params]
   group = "play"

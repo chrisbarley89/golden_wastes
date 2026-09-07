@@ -1,0 +1,71 @@
+{{ $name := .Get "name" | default .Page.Title }}
+{{ $entries := where (where (partialCached "character/entries.html" "talesofargosa") "type" "Class") "name" $name }}
+{{ if ne (len $entries) 1 }}{{ errorf "Expected one class named %q at %s" $name .Position }}{{ end }}
+{{ with index $entries 0 }}
+  {{ $mechanics := .mechanics }}
+  {{ $.Page.Store.Set "class-mechanics" $mechanics }}
+  <div class="character-profile class-profile">
+    <h2 id="overview">Overview</h2>
+    {{ if eq $name "Sharpshooter" }}
+      {{ index (findRE `<p>.*?</p>` .descriptionHtml) 0 | safeHTML }}
+    {{ else }}
+      {{ .descriptionHtml | safeHTML }}
+    {{ end }}
+    <h2 id="specialities">Specialities</h2>
+    <ul>{{ range $.Page.Params.specialities }}<li>{{ . | markdownify }}</li>{{ end }}</ul>
+    <h2 id="class-at-a-glance">Class at a glance</h2>
+    <div class="character-table" role="region" aria-label="Class at a glance" tabindex="0">
+      <table>
+        <thead><tr><th scope="col">Feature</th><th scope="col">Details</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Weapons</th><td>{{ $mechanics.weaponProficiencies }}</td></tr>
+          <tr><th scope="row">Armour</th><td>{{ $mechanics.armourProficiencies }}</td></tr>
+          <tr><th scope="row">Starting gear</th><td>{{ $mechanics.startingGear | markdownify }}</td></tr>
+          <tr><th scope="row">Starting skills</th><td>{{ range $i, $skill := $mechanics.skills.starting }}{{ if $i }}, {{ end }}{{ partial "character/skill-link.html" $skill }}{{ end }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <details class="class-skills" id="class-skills">
+      <summary><h2>Class skills</h2></summary>
+      {{ if eq $name "Sharpshooter" }}<p>Start with Detection and Stealth, then roll 1d12 three times on this table.</p>{{ end }}
+      <div class="character-table" role="region" aria-label="Class skills" tabindex="0">
+        <table>
+          <thead><tr><th scope="col">{{ $mechanics.skills.tableDie }}</th><th scope="col">Skill</th></tr></thead>
+          <tbody>{{ range $mechanics.skills.options }}<tr><th scope="row">{{ .roll }}</th><td>{{ partial "character/skill-link.html" .skill }}</td></tr>{{ end }}</tbody>
+        </table>
+      </div>
+    </details>
+    <h2 id="class-progression">Class progression</h2>
+    <p>Follow an ability link to its rules below. Attack bonuses are the values at each level.</p>
+    <div class="character-table" role="region" aria-label="Class progression" tabindex="0">
+      <table>
+        <thead><tr><th scope="col">Level</th><th scope="col">Attack bonus</th><th scope="col">Abilities gained</th></tr></thead>
+        <tbody>
+          {{ range $mechanics.progression }}
+            {{ if in (slice "1" "2" "3" "4" "5" "6" "7" "8" "9") (string .level) }}
+              {{ $level := int .level }}
+              <tr><th scope="row">{{ $level }}</th><td>+{{ .attackBonus }}</td><td>{{ range $i, $ability := split .abilities ", " }}{{ if $i }}, {{ end }}<a href="#level-{{ $level }}-{{ $ability | anchorize }}">{{ $ability }}</a>{{ end }}</td></tr>
+            {{ end }}
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+    <h2 id="class-abilities">Class abilities by level</h2>
+    {{ range $mechanics.progression }}
+      {{ if in (slice "1" "2" "3" "4" "5" "6" "7" "8" "9") (string .level) }}
+        {{ $level := int .level }}
+        {{ if gt $level 1 }}<hr class="class-level-divider">{{ end }}
+        <h3 id="level-{{ $level }}">Level {{ $level }}</h3>
+        {{ range split .abilities ", " }}
+          {{ $anchor := printf "level-%d-%s" $level (. | anchorize) }}
+          <h4 id="{{ $anchor }}">{{ . }}</h4>
+          {{ partial "character/ability.html" (dict "name" . "class" $name "anchor" $anchor) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ if eq $name "Sharpshooter" }}
+      <h2 id="beyond-level-9">Beyond level 9</h2>
+      <p>If you survive this long, you retire to head a school for passing on your peerless arts in marksmanship.</p>
+    {{ end }}
+  </div>
+{{ end }}
