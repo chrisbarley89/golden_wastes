@@ -1,0 +1,39 @@
+{{- $hidePage := .Params.placeholder | default false -}}
+{{- if eq .Kind "term" -}}
+  {{- $visibleTermPages := where .Pages "Params.placeholder" "ne" true -}}
+  {{- if eq ($visibleTermPages | len) 0 -}}
+    {{- $hidePage = true -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $hidePage -}}
+<!doctype html>
+<html
+  lang="{{ site.Language.LanguageCode }}"
+  dir="{{ or site.Language.LanguageDirection `ltr` }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+
+  <body{{ if .Params.searchHidden }} data-pagefind-ignore="all"{{ else }} data-pagefind-body{{ end }}>
+    <div class="layout">
+      <div class="layout__dummy-navbar">
+        {{ partial "dummy-navbar.html" }}
+      </div>
+      <aside class="layout__navbar">
+        {{ partial "navbar.html" . }}
+      </aside>
+      <span class="layout__sidebar-image"></span>
+      <section class="layout__main{{ if eq .Kind "page" }} layout__main--content-page{{ end }}">
+        <span class="layout__main-header-background"></span>
+        <span class="layout__main-whole-background"></span>
+        <main class="layout__main-content">
+          {{ block "main" . }}{{ end }}
+        </main>
+        <footer>
+          {{ partial "footer.html" . }}
+        </footer>
+      </section>
+    </div>
+  </body>
+</html>
+{{- end -}}

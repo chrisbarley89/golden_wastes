@@ -221,6 +221,7 @@ content:
       - { name: updated, label: Updated date, type: date, required: false, description: Last meaningful revision date shown in page metadata where enabled. }
       - { name: draft, label: Draft, type: boolean, required: false, default: false, description: Prevents the page from appearing in normal production builds. }
       - { name: placeholder, label: Hide as placeholder, type: boolean, required: false, default: false, description: Keeps template or unfinished content out of portals cards and public page output. }
+      - { name: searchHidden, label: Hide from search, type: boolean, required: false, default: false, description: Excludes this page from site search after the next build. The page remains accessible through links. }
       - { name: slug, label: URL slug, type: string, required: false, default: "", description: Replaces the filename-derived final URL segment without moving the source file. }
       - { name: url, label: URL override, type: string, required: false, default: "", description: Forces a complete site-relative URL; use carefully because it overrides the normal /lore path. }
       - { name: aliases, label: Previous URLs, type: string, list: true, required: false, default: [], description: Old site-relative URLs that Hugo should redirect to this page. }
@@ -329,6 +330,7 @@ content:
       - { name: updated, label: Updated date, type: date, required: false, description: Date of the latest meaningful content revision. }
       - { name: draft, label: Draft, type: boolean, required: false, description: Excludes the page from normal production builds. }
       - { name: placeholder, label: Hide as placeholder, type: boolean, required: false, description: Hides template or unfinished content from public portals and cards. }
+      - { name: searchHidden, label: Hide from search, type: boolean, required: false, default: false, description: Excludes this page from site search after the next build. The page remains accessible through links. }
       - { name: slug, label: URL slug, type: string, required: false, description: Replaces the filename-derived final URL segment. }
       - { name: url, label: URL override, type: string, required: false, description: Forces a complete site-relative URL instead of the normal /campaign path. }
       - { name: aliases, label: Previous URLs, type: string, list: true, required: false, description: Old URLs that Hugo redirects to this page. }
@@ -403,6 +405,7 @@ content:
       - { name: updated, label: Updated date, type: date, required: false }
       - { name: draft, label: Draft, type: boolean, required: false }
       - { name: placeholder, label: Hide as placeholder, type: boolean, required: false }
+      - { name: searchHidden, label: Hide from search, type: boolean, required: false, default: false, description: Excludes this page from site search after the next build. The page remains accessible through links. }
       - { name: slug, label: URL slug, type: string, required: false }
       - { name: url, label: URL override, type: string, required: false }
       - { name: aliases, label: Previous URLs, type: string, list: true, required: false }
@@ -477,6 +480,7 @@ content:
       - { name: updated, label: Updated date, type: date, required: false }
       - { name: draft, label: Draft, type: boolean, required: false }
       - { name: placeholder, label: Hide as placeholder, type: boolean, required: false }
+      - { name: searchHidden, label: Hide from search, type: boolean, required: false, default: false, description: Excludes this page from site search after the next build. The page remains accessible through links. }
       - { name: slug, label: URL slug, type: string, required: false }
       - { name: url, label: URL override, type: string, required: false }
       - { name: aliases, label: Previous URLs, type: string, list: true, required: false }
@@ -551,6 +555,7 @@ content:
       - { name: updated, label: Updated date, type: date, required: false }
       - { name: draft, label: Draft, type: boolean, required: false }
       - { name: placeholder, label: Hide as placeholder, type: boolean, required: false }
+      - { name: searchHidden, label: Hide from search, type: boolean, required: false, default: false, description: Excludes this page from site search after the next build. The page remains accessible through links. }
       - { name: slug, label: URL slug, type: string, required: false }
       - { name: url, label: URL override, type: string, required: false }
       - { name: aliases, label: Previous URLs, type: string, list: true, required: false }
@@ -627,6 +632,7 @@ content:
       - { name: updated, label: Updated date, type: date, required: false }
       - { name: draft, label: Draft, type: boolean, required: false }
       - { name: placeholder, label: Hide as placeholder, type: boolean, required: false }
+      - { name: searchHidden, label: Hide from search, type: boolean, required: false, default: false, description: Excludes this page from site search after the next build. The page remains accessible through links. }
       - { name: slug, label: URL slug, type: string, required: false }
       - { name: url, label: URL override, type: string, required: false }
       - { name: aliases, label: Previous URLs, type: string, list: true, required: false }
@@ -699,6 +705,7 @@ content:
           format: "yyyy-MM-dd'T'HH:mm:ssXXX"
       - { name: draft, label: Draft, type: boolean, required: false }
       - { name: placeholder, label: Hide as placeholder, type: boolean, required: false }
+      - { name: searchHidden, label: Hide from search, type: boolean, required: false, default: false, description: Excludes this page from site search after the next build. The page remains accessible through links. }
       - { name: updated, label: Updated date, type: date, required: false }
       - { name: slug, label: URL slug, type: string, required: false }
       - { name: url, label: URL override, type: string, required: false }
@@ -715,3 +722,12 @@ content:
         label: Content
         type: rich-text
         options: { format: markdown, media: images, switcher: true }
+
+  - name: rules_home
+    label: Rules home page
+    type: file
+    path: content/rules/_index.md
+    format: toml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: searchHidden, label: Hide from search, type: boolean, required: false, default: false, description: Excludes this page from site search after the next build. The page remains accessible through links. }
