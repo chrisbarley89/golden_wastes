@@ -433,7 +433,8 @@ enabled = false
   mobileLogoDark = "/logo-dark.png"
   mobileLogoSmall = "/logo-s.png"
   mobileLogoDarkSmall = "/logo-s-dark.png"
-  subtitle = "Explore"
+  subtitle = "Lore"
+  rulesSubtitle = "Rules"
   columnsOnDesktop = 2
   showFooter = false
   footerText = ""
@@ -514,6 +515,8 @@ weight = 45
   popover = true
   popoverContentPartial = "popovers/settings.html"
 
+# section selects Lore/Rules; group arranges columns within that section.
+# Use section = "both" to show a link in both sections; omitted defaults to lore.
 [[menus.navigation]]
 name = "How To Play"
 pre = "graduate"
@@ -521,6 +524,7 @@ pageRef = "/campaign/how-to-play"
 weight = 10
 
   [menus.navigation.params]
+  section = "rules"
   group = "learn"
 
 [[menus.navigation]]
@@ -530,6 +534,7 @@ pageRef = "/location/the-wastes"
 weight = 20
 
   [menus.navigation.params]
+  section = "lore"
   group = "learn"
 
 [[menus.navigation]]
@@ -539,6 +544,7 @@ pageRef = "/categories/class"
 weight = 40
 
   [menus.navigation.params]
+  section = "rules"
   group = "play"
 
 [[menus.navigation]]
@@ -548,4 +554,5 @@ pageRef = "/categories/monster"
 weight = 60
 
   [menus.navigation.params]
+  section = "lore"
   group = "play"
