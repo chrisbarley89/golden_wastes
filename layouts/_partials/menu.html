@@ -7,6 +7,7 @@
 {{- $page := .page }}
 {{- $menuID := .menuID }}
 {{- $editablePage := partial "editable-page.html" $page }}
+{{- $showEditButton := ne site.Params.navbarBar.showEditButton false }}
 
 {{- with index site.Menus $menuID }}
   <nav class="navbar">
@@ -15,18 +16,18 @@
     <ul class="navbar__list navbar__list--top">
       {{- $topEntries := slice }}
       {{- range . }}
-        {{- if not .Params.inBottom }}
+        {{- if and (not .Params.inBottom) (or (not .Params.editCurrentPage) (and $showEditButton $editablePage.editable)) }}
           {{- $topEntries = $topEntries | append . }}
         {{- end }}
       {{- end }}
-      {{- partial "walk.html" (dict "page" $page "menuEntries" $topEntries) }}
+      {{- partial "walk.html" (dict "page" $page "menuEntries" $topEntries "editablePage" $editablePage) }}
     </ul>
 
     <ul class="navbar__list navbar__list--bottom">
       {{- $bottomEntries := slice }}
       {{- range . }}
         {{- $isEditCurrentPage := .Params.editCurrentPage | default false }}
-        {{- if and .Params.inBottom (or (not $isEditCurrentPage) $editablePage.editable) }}
+        {{- if and .Params.inBottom (or (not $isEditCurrentPage) (and $showEditButton $editablePage.editable)) }}
           {{- $bottomEntries = $bottomEntries | append . }}
         {{- end }}
       {{- end }}

@@ -99,6 +99,7 @@ show_taxonomies = true
 taxonomy_blacklist = ["campaign"]
 
 [params.navbarBar]
+showEditButton = false # Set to true to display Edit on editable pages.
 iconsHaveLabels = false
 iconSeparator = true
 
