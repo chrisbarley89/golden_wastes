@@ -1,0 +1,13 @@
+{{- $mode := .Params.homeMode | default "lore" -}}
+<section class="small-tile" aria-label="{{ $mode | title }} categories">
+  {{- range site.Taxonomies.categories.Alphabetical -}}
+    {{- $category := .Page -}}
+    {{- $visible := where .Pages "Params.placeholder" "ne" true -}}
+    {{- if and (gt (len $visible) 0) (not $category.Params.placeholder) (partial "home/category-matches.html" (dict "category" $category "mode" $mode)) -}}
+      {{- $image := index site.Params.smallTiles.images $category.Data.Term | default "" -}}
+      <a href="{{ $category.RelPermalink }}" class="small-tile__item"{{ with $image }} style="background-image: url('{{ . | relURL }}');"{{ end }}>
+        <h4 class="small-tile__text">{{ $category.LinkTitle }}</h4>
+      </a>
+    {{- end -}}
+  {{- end }}
+</section>

@@ -1,0 +1,27 @@
+  {{ partial "home-map-notification.html" . }}
+  <header class="home-header">
+    <div class="home-header__circle "></div>
+    <h1 class="home-header__title">{{ site.Title }}</h1>
+    <h3 class="home-header__subtitle">
+      {{ site.Params.subtitle }}
+    </h3>
+    {{ partial "home/toggle.html" . }}
+  </header>
+  {{ partial "home/small-tiles.html" . }}
+  {{ partial "home/big-tiles.html" . }}
+  {{ partial "random-fact.html" . }}
+  {{ partial "timeline.html" . }}
+  {{ partial "interactive-map.html" . }}
+  {{ partial "section-header.html" "About us" }}
+  <div class="home__about-us">{{ site.Home.Content }}</div>
+  <div class="section-header home__contact-header">
+    <h3 class="section-header__title">
+      <span class="home__contact-title">
+        <span class="home__contact-icon" aria-hidden="true"></span>
+        Contact Us
+      </span>
+    </h3>
+  </div>
+  <div class="home__contact">
+    {{ partial "discord-button.html" (dict) }}
+  </div>

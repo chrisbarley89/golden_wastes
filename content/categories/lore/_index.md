@@ -1,4 +1,5 @@
 ---
+home_mode: lore
 title: Lore
 header: ''
 date: 2026-08-01

@@ -635,6 +635,13 @@ content:
       - { name: summary, label: Summary, type: text, required: false }
       - { name: image, label: Portal image, type: string, required: false }
       - { name: fitThumbnail, label: Fit image inside search thumbnail, type: boolean, required: false, default: false, description: Shows the complete portal image inside the square search-result thumbnail instead of cropping it. Overrides the globally disabled setting for this page. }
+      - name: home_mode
+        label: Front page membership
+        type: select
+        default: lore
+        options:
+          values: [lore, rules, both]
+        description: Choose which front pages show this category.
       - name: portal_view
         label: Portal layout
         type: select

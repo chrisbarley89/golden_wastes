@@ -453,12 +453,14 @@
   font-size: var(--font-size-2xl);
 }
 
+.home-header {
+  border-bottom: none;
+}
+
 .home-header__subtitle {
   font-size: var(--font-subtitle);
   margin-top: -10px;
-  @include for-screen(mobile) {
-    margin-bottom: calc(var(--home-header-circle-margin) / 2);
-  }
+  margin-bottom: 2rem;
 }
 
 .home-header__title {

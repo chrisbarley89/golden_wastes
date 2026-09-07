@@ -1,0 +1,54 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="{{ "icon.ico" | relURL }}" sizes="any" />
+
+<title>
+  {{ if .IsHome }}
+    {{ site.Title }}
+  {{ else }}
+    {{ printf "%s | %s" .Title site.Title }}
+  {{ end }}
+</title>
+
+<link
+  rel="preload"
+  as="image"
+  href="{{ "mountains-header-transparent.png" | relURL }}"
+  fetchpriority="high" />
+
+<script>
+  (function () {
+    const theme = localStorage.getItem('theme') || 'auto';
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    ).matches;
+    const finalTheme =
+      theme === 'auto' ? (prefersDark ? 'dark' : 'light') : theme;
+    document.documentElement.setAttribute('data-theme', finalTheme);
+
+    if (finalTheme === 'dark') {
+      const style = document.createElement('style');
+      style.id = 'dark-mode-flash-fix';
+      style.textContent = `
+      .layout__main-whole-background,
+      .layout__sidebar-image,
+      .home-header__circle {
+        filter: invert(0); // changed to prevent a glitch where switching themes live stays in dark mode.
+      }
+      .layout__main-whole-background {
+        opacity: 0.035;
+      }
+      .layout__main-header-background {
+        opacity: 0.3;
+      }
+      .layout__sidebar-image {
+        opacity: 0.065;
+      }
+    `;
+      document.head.appendChild(style);
+    }
+  })();
+</script>
+
+{{ partialCached "head/css.html" . (or .IsHome (eq .Params.homeMode "rules")) }}
+{{ partialCached "head/js.html" . (or .IsHome (eq .Params.homeMode "rules")) }}

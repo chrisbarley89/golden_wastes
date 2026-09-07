@@ -1,0 +1,61 @@
+{{- $mode := .Params.homeMode | default "lore" -}}
+{{- $settings := index site.Params.homeViews $mode -}}
+{{- $count := int $settings.count -}}
+{{- if lt $count 0 }}{{ errorf "homeViews.%s.count must be non-negative" $mode }}{{ end -}}
+{{- $truncate := site.Params.bigTiles.truncate | default 150 -}}
+{{- $partials := site.Params.bigTiles.partials -}}
+{{- $pages := slice -}}
+{{- range $settings.pages -}}
+  {{- $path := . -}}
+  {{- with site.GetPage $path -}}
+    {{- if not (or .Params.placeholder .Draft) -}}
+      {{- $matches := false -}}
+      {{- range .GetTerms "categories" -}}
+        {{- if partial "home/category-matches.html" (dict "category" . "mode" $mode) -}}
+          {{- $matches = true -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if $matches -}}
+        {{- $pages = $pages | append . -}}
+      {{- else -}}
+        {{- warnf "Featured page %s has no category assigned to %s; skipping" $path $mode -}}
+      {{- end -}}
+    {{- end -}}
+  {{- else -}}
+    {{- warnf "Featured page %s for %s was not found; skipping" $path $mode -}}
+  {{- end -}}
+{{- end -}}
+{{- $pages = $pages | uniq -}}
+{{- if and (gt $count 0) (gt (len $pages) 0) -}}
+{{ partial "section-header.html" "Featured" }}
+<section class="big-tile">
+  {{- range first $count $pages }}
+      {{- if not (.Params.placeholder | default false) }}
+      {{- $category := index .Params.categories 0 | default "default" -}}
+      {{- $partialName := index $partials $category -}}
+
+      {{- if $partialName }}
+        {{- partial (printf "big-tile/%s" $partialName) (dict
+          "page" .
+          "truncate" $truncate
+          "category" $category
+          )
+        }}
+      {{- else }}
+        <article class="big-tile__item big-tile__item--default" style="background-image: url('{{ .Params.image }}')">
+          <a href="{{ .RelPermalink }}" class="big-tile__link">
+            <span class="big-tile__category">{{ $category }}</span>
+            <div class="big-tile__overlay">
+              <div class="big-tile__content">
+                <h2 class="big-tile__title">{{ .Title }}</h2>
+                <p class="big-tile__excerpt">{{ .Summary | plainify | truncate $truncate }}</p>
+              </div>
+            </div>
+          </a>
+        </article>
+      {{- end }}
+      {{- end }}
+  {{- end }}
+</section>
+
+{{- end }}

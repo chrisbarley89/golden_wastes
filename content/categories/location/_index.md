@@ -1,4 +1,5 @@
 ---
+home_mode: lore
 title: Location
 header: ''
 date: null

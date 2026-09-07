@@ -112,13 +112,16 @@ branch = "production"
 type = "categories"
 
 [params.bigTiles]
-count = 3
 truncate = 130
-pages = [
-  "/campaign/the-project",
-  "/campaign/how-to-play",
-  "/location/the-wastes",
-]
+
+# Ordered featured pages for each front page. Set count = 0 to hide Featured.
+[params.homeViews.lore]
+count = 3
+pages = ["/campaign/the-project", "/campaign/how-to-play", "/location/the-wastes"]
+
+[params.homeViews.rules]
+count = 3
+pages = ["/campaign/how-to-play", "/class/fighter", "/item/shield"]
 
 [params.smallTiles.images]
 monster = "/uploads/monster.jpg"

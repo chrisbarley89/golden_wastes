@@ -1,0 +1,8 @@
+{{- $mode := .Params.homeMode | default "lore" -}}
+<nav class="home-toggle" aria-label="Content mode">
+  {{- range slice "lore" "rules" }}
+    {{- $page := site.Home -}}
+    {{- if eq . "rules" }}{{ $page = site.GetPage "/rules" }}{{ end -}}
+    <a class="home-toggle__option" href="{{ $page.RelPermalink }}"{{ if eq . $mode }} aria-current="page"{{ end }}>{{ . | title }}</a>
+  {{- end }}
+</nav>

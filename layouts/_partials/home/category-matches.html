@@ -1,0 +1,5 @@
+{{- $membership := .category.Params.home_mode | default "lore" -}}
+{{- if not (in (slice "lore" "rules" "both") $membership) -}}
+  {{- errorf "Invalid home_mode %q on %s; use lore, rules, or both" $membership .category.Path -}}
+{{- end -}}
+{{- return (or (eq $membership "both") (eq $membership .mode)) -}}

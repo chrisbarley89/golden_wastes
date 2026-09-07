@@ -1,0 +1,4 @@
++++
+title = "Rules"
+homeMode = "rules"
++++

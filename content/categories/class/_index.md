@@ -1,4 +1,5 @@
 ---
+home_mode: rules
 title: Class
 header: ''
 date: null

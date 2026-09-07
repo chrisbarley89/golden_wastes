@@ -1,0 +1,33 @@
+.home-toggle {
+  display: flex;
+  width: fit-content;
+  margin: -1rem auto 2.5rem;
+  padding: 0.25rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 2rem;
+  background: var(--color-background-default);
+
+  &__option {
+    display: grid;
+    place-items: center;
+    min-height: 44px;
+    min-width: 5rem;
+    padding: 0.25rem 1rem;
+    border-radius: 2rem;
+    color: var(--color-text-default);
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover { background: var(--color-interactive-hover); }
+
+    &[aria-current='page'] {
+      background: var(--color-primary);
+      color: var(--color-text-inverted);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-interactive-focus);
+      outline-offset: 3px;
+    }
+  }
+}

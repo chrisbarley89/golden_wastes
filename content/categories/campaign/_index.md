@@ -1,4 +1,5 @@
 ---
+home_mode: both
 title: Campaign
 header: ''
 date: null

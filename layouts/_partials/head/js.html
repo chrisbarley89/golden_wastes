@@ -1,0 +1,48 @@
+{{- $opts := dict
+  "minify" true
+  "targetPath" "js/main.js"
+}}
+
+{{- if and (or .IsHome (eq .Params.homeMode "rules")) (.Site.Params.interactiveMap.enabled | default false) }}
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+{{- end }}
+
+{{- with resources.Get "js/main.js" | js.Build $opts | fingerprint }}
+  <script
+    src="{{ .RelPermalink }}"
+    integrity="{{ .Data.Integrity }}"
+    crossorigin="anonymous"></script>
+{{- end }}
+
+
+<script>
+  function scrollToTopOfElement(className) {
+    const el = document.querySelector(`.${className}`);
+    if (el) {
+      el.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+<!-- Load PageFind core API as a module -->
+<script type="module">
+  import * as pagefind from '/pagefind/pagefind.js';
+  window.pagefind = pagefind;
+  console.log('PageFind API loaded:', window.pagefind);
+
+  // Dispatch event to notify that pagefind is ready
+  window.dispatchEvent(new CustomEvent('pagefind-loaded'));
+</script>
+
+{{- $customPagefind := resources.Get "js/pagefind-custom.js" | js.Build (dict "minify" true "targetPath" "js/pagefind-custom.js") }}
+{{- if $customPagefind }}
+  <script src="{{ $customPagefind.RelPermalink }}"></script>
+{{- end }}
+
+{{- $carouselScript := resources.Get "js/portal-card-carousel.js" | js.Build (dict "minify" true "targetPath" "js/portal-card-carousel.js") }}
+{{- if $carouselScript }}
+  <script src="{{ $carouselScript.RelPermalink }}"></script>
+{{- end }}
