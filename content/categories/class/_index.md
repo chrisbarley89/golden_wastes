@@ -58,9 +58,9 @@ card_count: 3
 min_card_count: 3
 random_cards: false
 cards:
-- /class/artificer/
+- /class/bard/
 - /class/monk/
-- /class/cultist/
+- /class/fighter/
 truncate_limit: 150
 carousel_on_desktop: false
 show_alphabet: false

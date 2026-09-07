@@ -200,7 +200,7 @@ content:
             type: select
             required: true
             options:
-              - { label: Campaign, value: campaign }
+              - { label: Community, value: campaign }
               - { label: Categories, value: categories }
               - { label: Class, value: class }
               - { label: Event, value: event }
@@ -291,7 +291,7 @@ content:
       search: [title, body]
 
   - name: campaigns
-    label: Campaigns
+    label: Community
     type: collection
     path: content/campaign
     format: yaml-frontmatter
@@ -309,7 +309,7 @@ content:
             type: select
             required: true
             options:
-              - { label: Campaign, value: campaign }
+              - { label: Community, value: campaign }
               - { label: Categories, value: categories }
               - { label: Class, value: class }
               - { label: Event, value: event }
@@ -340,21 +340,21 @@ content:
       - { name: author, label: Author, type: string, required: false, description: Author credit displayed in page metadata when enabled. }
       - name: type
         label: Layout type
-        description: Campaign entries use the standard page layout.
+        description: Community entries use the standard page layout.
         type: select
         default: page
         options:
           values: [page]
       - name: categories
         label: Categories
-        description: Controls taxonomy portals and breadcrumbs; Campaign entries should retain campaign.
+        description: Controls taxonomy portals and breadcrumbs; Community entries should retain community.
         type: string
         list: true
-        default: [campaign]
+        default: [community]
       - { name: tags, label: Tags, type: string, list: true, required: false, description: Additional taxonomy keywords used for navigation filtering and search context. }
       - { name: series, label: Series, type: string, required: false, description: Groups related campaign pages into a named sequence. }
-      - { name: eventDate, label: Campaign date, type: string, required: false, description: In-world or scheduled campaign date displayed by campaign-aware components. }
-      - { name: eventTime, label: Campaign time, type: string, required: false, description: In-world or scheduled campaign time displayed by campaign-aware components. }
+      - { name: eventDate, label: Community date, type: string, required: false, description: In-world or scheduled campaign date displayed by campaign-aware components. }
+      - { name: eventTime, label: Community time, type: string, required: false, description: In-world or scheduled campaign time displayed by campaign-aware components. }
       - { name: image, label: Featured image, type: string, required: false, description: Thumbnail used by campaign cards lists and search presentation. }
       - { name: fitThumbnail, label: Fit image inside search thumbnail, type: boolean, required: false, default: false, description: Shows the complete featured image inside the square search-result thumbnail instead of cropping it to fill the frame. Overrides the globally disabled Pagefind thumbnail-fit setting for this page. }
       - { name: featured_image, label: Page header image, type: string, required: false, description: Large image rendered near the top of the campaign page. }
@@ -362,7 +362,7 @@ content:
       - { name: show_reading_time, label: Show reading time, type: boolean, required: false, description: Displays Hugo's estimated minutes to read. }
       - { name: references, component: references, description: External sources displayed in the references footer. }
       - name: body
-        label: Campaign body
+        label: Community body
         type: rich-text
         description: Main Markdown content rendered on the campaign page.
         options: { format: markdown, media: images, switcher: true }
@@ -391,7 +391,7 @@ content:
             type: select
             required: true
             options:
-              - { label: Campaign, value: campaign }
+              - { label: Community, value: campaign }
               - { label: Categories, value: categories }
               - { label: Class, value: class }
               - { label: Event, value: event }
@@ -466,7 +466,7 @@ content:
             type: select
             required: true
             options:
-              - { label: Campaign, value: campaign }
+              - { label: Community, value: campaign }
               - { label: Categories, value: categories }
               - { label: Class, value: class }
               - { label: Event, value: event }
@@ -541,7 +541,7 @@ content:
             type: select
             required: true
             options:
-              - { label: Campaign, value: campaign }
+              - { label: Community, value: campaign }
               - { label: Categories, value: categories }
               - { label: Class, value: class }
               - { label: Event, value: event }
@@ -618,7 +618,7 @@ content:
             type: select
             required: true
             options:
-              - { label: Campaign, value: campaign }
+              - { label: Community, value: campaign }
               - { label: Categories, value: categories }
               - { label: Class, value: class }
               - { label: Event, value: event }

@@ -1,0 +1,167 @@
+<div class="portal-card">
+  <section class="portal-card__intro">
+    <div class="portal-card__intro-body">
+      <h2 class="portal-card__intro-title">{{ .Title }}</h2>
+      {{ $showIntroText := default true .Site.Params.portalCard.show_intro_text }}
+      {{ if isset .Params "show_intro_text" }}
+        {{ $showIntroText = .Params.show_intro_text }}
+      {{ end }}
+      {{ if $showIntroText }}
+        {{ if isset .Params "intro_text" }}
+          <p class="portal-card__intro-text">{{ .Params.intro_text }}</p>
+        {{ else }}
+          {{ with .Site.Params.portalCard.intro_text }}
+            <p class="portal-card__intro-text">{{ . }}</p>
+          {{ else }}
+            {{ with .Content }}
+              <div class="portal-card__intro-text">{{ . }}</div>
+            {{ else }}
+              <p class="portal-card__intro-text">
+                Choose your path. Each class offers unique abilities and
+                playstyles in the brutal world of Golden Wastes.
+              </p>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+
+  {{ $carouselOnDesktop := default false .Site.Params.portalCard.carousel_on_desktop }}
+  {{ if isset .Params "carousel_on_desktop" }}
+    {{ $carouselOnDesktop = .Params.carousel_on_desktop }}
+  {{ end }}
+
+
+  <main
+    class="portal-card__main"
+    data-carousel-desktop="{{ $carouselOnDesktop }}">
+    <div class="portal-card__spread">
+      {{ $cardCount := default 3 .Site.Params.portalCard.card_count }}
+      {{ if isset .Params "card_count" }}
+        {{ $cardCount = .Params.card_count }}
+      {{ end }}
+
+      {{ $minCardCount := default 3 .Site.Params.portalCard.min_card_count }}
+      {{ if isset .Params "min_card_count" }}
+        {{ $minCardCount = .Params.min_card_count }}
+      {{ end }}
+
+      {{ $truncateLimit := default 100 .Site.Params.portalCard.truncate_limit }}
+      {{ if isset .Params "truncate_limit" }}
+        {{ $truncateLimit = .Params.truncate_limit }}
+      {{ end }}
+
+      {{ $displayPages := partialCached "portal-views/selected-cards.html" . .RelPermalink }}
+
+      {{ if ge ($displayPages | len) $minCardCount }}
+        {{ range $index, $page := $displayPages }}
+          {{ $position := "" }}
+          {{ if eq $cardCount 3 }}
+            {{ if eq $index 0 }}
+              {{ $position = "left" }}
+            {{ else if eq $index 1 }}
+              {{ $position = "center" }}
+            {{ else }}
+              {{ $position = "right" }}
+            {{ end }}
+          {{ else }}
+            {{ $position = "default" }}
+          {{ end }}
+
+
+          <article class="card card--{{ $position }}">
+            <div class="card__inner">
+              <div class="card__border">
+                <div class="card__corner card__corner--tl"></div>
+                <div class="card__corner card__corner--tr"></div>
+                <div class="card__corner card__corner--bl"></div>
+                <div class="card__corner card__corner--br"></div>
+              </div>
+
+              <div class="card__content">
+                {{ $currentPage := . }}
+                {{ with .Params.image }}
+                  <div class="card__image-wrapper">
+                    <img
+                      src="{{ . }}"
+                      alt="{{ $currentPage.Title }}"
+                      class="card__image"
+                      loading="lazy" />
+                  </div>
+                {{ else }}
+                  {{ with partial "thumbnail-fallback-path.html" $currentPage }}
+                    <div class="card__image-wrapper">
+                      <span
+                        class="card__image card__image--fallback"
+                        role="img"
+                        aria-label="{{ $currentPage.Title }}"
+                        style="--thumbnail-fallback-image: url('{{ . | safeURL }}')"></span>
+                    </div>
+                  {{ end }}
+                {{ end }}
+
+
+                <div class="card__header">
+                  <div class="card__ornament card__ornament--top"></div>
+                  <h3 class="card__title">{{ .Title }}</h3>
+                  <div class="card__ornament card__ornament--bottom"></div>
+                </div>
+
+                {{ with .Summary }}
+                  <p class="card__text">
+                    {{ . | plainify | truncate $truncateLimit }}
+                  </p>
+                {{ end }}
+
+
+                <a href="{{ .RelPermalink }}" class="card__link">
+                  <span class="card__link-text">Reveal</span>
+                  <span class="card__link-arrow">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      {{ else }}
+        <div class="portal-card__empty">
+          <p>
+            Not enough content to display the showcase. Minimum required:
+            {{ $minCardCount }}
+          </p>
+        </div>
+      {{ end }}
+    </div>
+  </main>
+
+  <section class="portal-card__list">
+    <h2 class="portal-card__list-title">All Entries</h2>
+    <div class="portal-card__list-grid">
+      {{ range (where .Pages "Params.placeholder" "ne" true).ByTitle }}
+        <a href="{{ .RelPermalink }}" class="portal-card__list-item">
+          <h3 class="portal-card__list-item-title">{{ .Title }}</h3>
+          {{ with .Summary }}
+            <p class="portal-card__list-item-text">
+              {{ . | plainify | truncate 80 }}
+            </p>
+          {{ end }}
+        </a>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ $showBottomTextbox := default true .Site.Params.portalCard.show_bottom_textbox }}
+  {{ if isset .Params "show_bottom_textbox" }}
+    {{ $showBottomTextbox = .Params.show_bottom_textbox }}
+  {{ end }}
+  {{ $bottomTextboxText := default "The cards have spoken. Choose your path wisely." .Site.Params.portalCard.bottom_textbox_text }}
+  {{ with .Params.bottom_textbox_text }}{{ $bottomTextboxText = . }}{{ end }}
+
+  {{ if $showBottomTextbox }}
+    <footer class="portal-card__footer">
+      <div class="split-row__col split-row__col--full">
+        <p class="split-row__text">{{ $bottomTextboxText }}</p>
+      </div>
+    </footer>
+  {{ end }}
+</div>

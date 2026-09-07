@@ -1,0 +1,25 @@
+{{- /* Shared selection: the portal and homepage must use the same cards. */ -}}
+{{- $settings := merge site.Params.portalCard .Params -}}
+{{- $count := int $settings.card_count -}}
+{{- $minimum := int $settings.min_card_count -}}
+{{- $available := where (where .Pages "Params.placeholder" "ne" true) "Draft" false -}}
+{{- $selected := slice -}}
+{{- if $settings.random_cards -}}
+  {{- $selected = first $count (shuffle $available) -}}
+{{- else if $settings.cards -}}
+  {{- range $settings.cards -}}
+    {{- $key := trim (printf "%v" .) "/" -}}
+    {{- range $available -}}
+      {{- if or (eq (trim .RelPermalink "/") $key) (eq .Slug $key) (eq (.Title | urlize) $key) -}}
+        {{- $selected = $selected | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $selected = first $count (uniq $selected) -}}
+{{- else -}}
+  {{- $selected = first $count $available.ByTitle -}}
+{{- end -}}
+{{- if lt (len $selected) $minimum -}}
+  {{- $selected = slice -}}
+{{- end -}}
+{{- return $selected -}}

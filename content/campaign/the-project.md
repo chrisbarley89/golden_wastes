@@ -7,7 +7,7 @@ placeholder: false
 type: page
 weight: 0
 categories:
-  - campaign
+  - community
 image: /uploads/mesa.jpg
 fitThumbnail: false
 show_date: true

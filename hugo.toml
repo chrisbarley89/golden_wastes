@@ -67,7 +67,7 @@ subtitle = "A Brutal TTRPG Adventure"
 # SVG pools used when a page has no thumbnail image. Category names are
 # matched case-insensitively; `other` is used when no category is detected.
 [params.thumbnailFallbacks]
-campaign = ["/SVG/sun.svg"]
+community = ["/SVG/sun.svg"]
 class = ["/SVG/sword-in-stone.svg", "/SVG/character.svg"]
 item = ["/SVG/backpack.svg"]
 location = ["/SVG/village.svg"]
@@ -96,7 +96,7 @@ show_date = false
 enabled = true
 separator = "/"
 show_taxonomies = true
-taxonomy_blacklist = ["campaign"]
+taxonomy_blacklist = ["community"]
 
 [params.navbarBar]
 showEditButton = false # Set to true to display Edit on editable pages.
@@ -116,26 +116,32 @@ type = "categories"
 truncate = 130
 
 # Ordered featured pages for each front page. Set count = 0 to hide Featured.
+# random_category replaces the manual list with random category entries at build time,
+# excluding that category portal's displayed cards. Fewer eligible entries means fewer tiles.
 [params.homeViews.lore]
 count = 3
 pages = ["/campaign/the-project", "/campaign/how-to-play", "/location/the-wastes"]
 
 [params.homeViews.rules]
 count = 3
-pages = ["/campaign/how-to-play", "/class/fighter", "/item/shield"]
+pages = []
+# Random picks exclude the cards displayed on this category portal.
+random_category = "class"
 
 [params.smallTiles.images]
 monster = "/uploads/monster.jpg"
 lore = "/uploads/blue-abstract.jpg"
-class = "/uploads/white-abstract.jpg"
+class = "/uploads/fighter.jpg"
+character = "/uploads/infest-library-party.jpg"
+race = "/uploads/oru-art.jpg"
 item = "/uploads/white-abstract.jpg"
-campaign = "/uploads/red-abstract.jpg"
+community = "/uploads/red-abstract.jpg"
 location = "/uploads/cave.jpg"
 
 [params.bigTiles.partials]
 lore = "big-tile-lore.html"
 location = "big-tile-lore.html"
-campaign = "big-tile-campaign.html"
+community = "big-tile-campaign.html"
 quote = "big-tile-quote.html"
 
 [params.timeline]

@@ -14,7 +14,7 @@ description: ''
 summary: ''
 author: 'Jack'
 categories:
-  - campaign
+  - community
 tags: []
 series: []
 image:

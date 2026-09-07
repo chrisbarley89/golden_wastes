@@ -14,7 +14,7 @@ description: ''
 summary: ''
 author: ''
 categories:
-- campaign
+- community
 tags: []
 series: []
 image: /uploads/ruins.jpg
@@ -89,7 +89,7 @@ bottom_textbox_text: ''
 
 
 
-The easiest way to get involved is through the Discord server or by checking the [Campaign category](/categories/campaign/) for upcoming campaigns and one-shots.
+The easiest way to get involved is through the Discord server or by checking the [Community category](/categories/community/) for upcoming campaigns and one-shots.
 
 If you want to find a group, discuss campaigns or talk about anything on the site, the Discord server is the best place to start.
 

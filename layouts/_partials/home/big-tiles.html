@@ -26,6 +26,20 @@
   {{- end -}}
 {{- end -}}
 {{- $pages = $pages | uniq -}}
+{{- with $settings.random_category -}}
+  {{- with site.GetPage (printf "/categories/%s" .) -}}
+    {{- if partial "home/category-matches.html" (dict "category" . "mode" $mode) -}}
+      {{- $excluded := slice -}}
+      {{- if eq (.Params.portal_view | default site.Params.portal.default_view) "card" -}}
+        {{- $excluded = partialCached "portal-views/selected-cards.html" . .RelPermalink -}}
+      {{- end -}}
+      {{- $available := where (where .Pages "Params.placeholder" "ne" true) "Draft" false -}}
+      {{- $pages = shuffle (complement $excluded $available) -}}
+    {{- end -}}
+  {{- else -}}
+    {{- warnf "Featured category %s was not found" . -}}
+  {{- end -}}
+{{- end -}}
 {{- if and (gt $count 0) (gt (len $pages) 0) -}}
 {{ partial "section-header.html" "Featured" }}
 <section class="big-tile">
