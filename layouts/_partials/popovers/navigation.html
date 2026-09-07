@@ -4,7 +4,7 @@
 {{- $mobileLogoDark := site.Params.navigationMenu.mobileLogoDark | default "/logo-dark.png" }}
 {{- $mobileLogoSmall := site.Params.navigationMenu.mobileLogoSmall | default "/logo-s.png" }}
 {{- $mobileLogoDarkSmall := site.Params.navigationMenu.mobileLogoDarkSmall | default "/logo-s-dark.png" }}
-{{- $subtitle := site.Params.navigationMenu.subtitle | default "Explore" }}
+{{- $subtitle := site.Params.navigationMenu.subtitle | default "Lore" }}
 {{- $showFooter := site.Params.navigationMenu.showFooter | default false }}
 {{- $columnsOnDesktop := site.Params.navigationMenu.columnsOnDesktop | default 2 }}
 {{- $showExternalLinks := site.Params.navigationMenu.showExternalLinks | default true }}
@@ -59,15 +59,23 @@
   </button>
 </header>
 
+{{- range $section := slice "lore" "rules" }}
 <span class="popover-navigation__separator"></span>
 
-{{- if $subtitle }}
-  <h4 class="popover-navigation__subtitle">{{ $subtitle }}</h4>
-{{- end }}
+<h4 class="popover-navigation__subtitle" id="navigation-{{ $section }}">{{ if eq $section "lore" }}{{ $subtitle }}{{ else }}{{ site.Params.navigationMenu.rulesSubtitle | default "Rules" }}{{ end }}</h4>
 
 
-<main class="popover-navigation__main" data-columns="{{ $columnsOnDesktop }}">
-  {{- $navigationMenu := index site.Menus "navigation" }}
+<div class="popover-navigation__main" data-section="{{ $section }}" data-columns="{{ $columnsOnDesktop }}">
+  {{- $navigationMenu := slice }}
+  {{- range index site.Menus "navigation" }}
+    {{- $entrySection := .Params.section | default "lore" }}
+    {{- if not (in (slice "lore" "rules" "both") $entrySection) }}
+      {{- errorf "Navigation item %q has invalid section %q; use lore, rules, or both" .Name $entrySection }}
+    {{- end }}
+    {{- if or (eq $entrySection $section) (eq $entrySection "both") }}
+      {{- $navigationMenu = $navigationMenu | append . }}
+    {{- end }}
+  {{- end }}
   {{- if $navigationMenu }}
     {{- $menuGroups := dict }}
     {{- $ungroupedItems := slice }}
@@ -84,7 +92,7 @@
     {{- end }}
 
     {{- range $groupName, $items := $menuGroups }}
-      <nav class="popover-navigation__column" data-group="{{ $groupName }}">
+      <nav class="popover-navigation__column" aria-labelledby="navigation-{{ $section }}" data-group="{{ $groupName }}">
         {{- range $items }}
           <a
             href="{{ .URL }}"
@@ -103,7 +111,7 @@
 
     {{- if gt (len $ungroupedItems) 0 }}
       <nav
-        class="popover-navigation__column popover-navigation__column--ungrouped">
+        class="popover-navigation__column popover-navigation__column--ungrouped" aria-labelledby="navigation-{{ $section }}">
         {{- range $ungroupedItems }}
           <a
             href="{{ .URL }}"
@@ -122,12 +130,14 @@
   {{- else }}
     <div class="popover-navigation__empty">
       <p>
-        No navigation menu configured. Add menu items to
-        <code>[menus.navigation]</code> in your site config.
+        No {{ $section }} links configured. Add menu items to
+        <code>[[menus.navigation]]</code> with <code>params.section = "{{ $section }}"</code> in your site config.
       </p>
     </div>
   {{- end }}
-</main>
+</div>
+
+{{- end }}
 
 {{- $externalLinks := site.Params.navigationMenu.externalLinks }}
 {{- if and $showExternalLinks $externalLinks }}

@@ -41,3 +41,23 @@ A featured page must belong to at least one category matching the current mode (
 `[params.bigTiles]` retains the shared excerpt length and category-specific tile templates. Unmapped categories use the shared image-card styling. Featured lists and counts are edited in `hugo.toml`; category assignments can be edited in Pages CMS.
 
 Run `npm run build` to rebuild the site and search index. These settings are resolved at build time, so content/configuration changes take effect after the next build and deployment.
+
+## Navigation dropdown
+
+The dropdown displays Lore, Rules, then External Links. Assign each internal button in `hugo.toml` using `section`:
+
+```toml
+[[menus.navigation]]
+name = "Classes"
+pre = "sword-in-stone"
+pageRef = "/categories/class"
+weight = 40
+
+  [menus.navigation.params]
+  section = "rules"
+  group = "play"
+```
+
+Use `section = "lore"`, `"rules"`, or `"both"`. Omitted sections default to Lore; invalid values fail the build. `group` continues to arrange links into columns within each section, and `weight` orders links within a group. Navigation assignments are independent of category front-page membership, so any page can be linked in either section.
+
+Initially, The Wastes and Bestiary appear under Lore; How To Play and Classes appear under Rules. Edit `params.navigationMenu.subtitle` and `rulesSubtitle` to change the headings. External links remain in `params.navigationMenu.externalLinks`.
