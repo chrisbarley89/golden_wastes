@@ -18,8 +18,8 @@ infobox:
       item: "Dexterity"
     - label: "HP multiplier"
       item: "x2"
-    - label: "Class complexity"
-      item: "Not rated"
+    - label: "Complexity"
+      item: "★★★★☆"
 ---
 
 <div class="rules-reference">

@@ -1,0 +1,13 @@
+<article class="big-tile__item big-tile__item--backgrounds"
+  style="background-image: url('{{ "uploads/statue-desert.jpg" | relURL }}')">
+  <a href="{{ .page.RelPermalink }}" class="big-tile__link">
+    <span class="big-tile__category">{{ .category }}</span>
+    <div class="big-tile__overlay">
+      <div class="big-tile__content">
+        <h2 class="big-tile__title">{{ .page.Title }}</h2>
+        <p class="big-tile__excerpt">{{ .page.Summary | plainify | truncate .truncate }}</p>
+        <div class="special-text">Explore the backgrounds...</div>
+      </div>
+    </div>
+  </a>
+</article>

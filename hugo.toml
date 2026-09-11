@@ -120,20 +120,18 @@ truncate = 130
 # excluding that category portal's displayed cards. Fewer eligible entries means fewer tiles.
 [params.homeViews.lore]
 count = 3
-pages = ["/campaign/the-project", "/campaign/how-to-play", "/location/the-wastes"]
+pages = ["/campaign/the-project", "/location/the-wastes", "/lore/zohm"]
 
 [params.homeViews.rules]
 count = 3
-pages = []
-# Random picks exclude the cards displayed on this category portal.
-random_category = "class"
+pages = ["/campaign/how-to-play", "/character/skills", "/character/backgrounds"]
 
 [params.smallTiles.images]
 monster = "/uploads/monster.jpg"
 lore = "/uploads/blue-abstract.jpg"
-class = "/uploads/fighter.jpg"
-character = "/uploads/infest-library-party.jpg"
-race = "/uploads/oru-art.jpg"
+class = "/uploads/retro-abstract.jpg"
+character = "/uploads/waves-abstract.jpg"
+race = "/uploads/crowd-abstract.jpg"
 item = "/uploads/white-abstract.jpg"
 community = "/uploads/red-abstract.jpg"
 location = "/uploads/cave.jpg"
@@ -143,6 +141,11 @@ lore = "big-tile-lore.html"
 location = "big-tile-lore.html"
 community = "big-tile-campaign.html"
 quote = "big-tile-quote.html"
+
+# Page-specific tile designs take precedence over category designs.
+[params.bigTiles.pagePartials]
+"/character/skills" = "big-tile-skills.html"
+"/character/backgrounds" = "big-tile-backgrounds.html"
 
 [params.timeline]
 enabled = true

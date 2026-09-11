@@ -54,15 +54,11 @@ references: []
 portal_view: card
 showcase_tiles: 0
 min_showcase_tiles: 0
-card_count: 3
-min_card_count: 3
-random_cards: false
-cards:
-- /class/bard/
-- /class/monk/
-- /class/fighter/
+card_count: 6
+min_card_count: 6
+random_cards: true
 truncate_limit: 150
-carousel_on_desktop: false
+carousel_on_desktop: true
 show_alphabet: false
 show_layout_toggle: false
 list_layout: ''

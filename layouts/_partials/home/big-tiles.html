@@ -47,6 +47,9 @@
       {{- if not (.Params.placeholder | default false) }}
       {{- $category := index .Params.categories 0 | default "default" -}}
       {{- $partialName := index $partials $category -}}
+      {{- with index site.Params.bigTiles.pagePartials .Path -}}
+        {{- $partialName = . -}}
+      {{- end -}}
 
       {{- if $partialName }}
         {{- partial (printf "big-tile/%s" $partialName) (dict

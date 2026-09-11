@@ -17,7 +17,7 @@ categories:
 - lore
 tags: []
 series: []
-image: ''
+image: /uploads/metal-desert.jpg
 fitThumbnail: false
 featured_image: ''
 image_caption: ''
